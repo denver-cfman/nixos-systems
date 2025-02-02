@@ -4,7 +4,7 @@
 ---
 ### check this flake
 ```
-nix flake check -v -L --no-build github:denver-cfman/nixos-systems//test?ref=main
+nix flake check -v -L --no-build --no-write-lock-file github:denver-cfman/nixos-systems//test?ref=main
 ```
 
 ### show this flake
