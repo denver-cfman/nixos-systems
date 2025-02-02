@@ -37,7 +37,7 @@
           inherit specialArgs;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
-            ./remote-nas1.nix
+            ./remote-nas1/remote-nas1.nix
           ];
         };
 
@@ -60,7 +60,7 @@
           remote-nas1 = {
             hostname = "remote-nas1";
             profiles.system.path =
-              deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.remote-nas1;
+              deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.remote-nas1;
             #remoteBuild = true;
             
           };
