@@ -89,6 +89,7 @@
     rsync
     mdadm
     tailscale
+    neofetch
   ];
 
   services.tailscale = {
