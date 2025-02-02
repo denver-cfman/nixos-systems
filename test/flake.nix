@@ -33,46 +33,14 @@
       };
     in rec {
       nixosConfigurations = {
-         _1b5a4d6b = nixpkgs.lib.nixosSystem {
+         remote-nas1 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
-            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-            ./1b5a4d6b.nix
+            ./remote-nas1.nix
           ];
         };
-         _004f17e5 = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = [
-            ({ config, pkgs, builtins, ... }: { nixpkgs.overlays = overlays; })
-            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-            ./004f17e5.nix
-          ];
-        };
-        fe127cb3 = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
-            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-            ./fe127cb3.nix
-          ];
-        };
-        _04a91ec3 = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
-            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-            ./04a91ec3.nix
-          ];
-        };
-        _8d4cb64d = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
-            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-            ./8d4cb64d.nix
-          ];
-        };
+
       };
 
       checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
@@ -89,41 +57,15 @@
         # This defaults to 30 seconds.
         confirmTimeout = 90;
         nodes = {
-          _1b5a4d6b = {
-            hostname = "1b5a4d6b";
+          remote-nas1 = {
+            hostname = "remote-nas1";
             profiles.system.path =
-              deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations._1b5a4d6b;
+              deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.remote-nas1;
             #remoteBuild = true;
             
           };
-          _04a91ec3 = {
-            hostname = "04a91ec3";
-            profiles.system.path =
-              deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations._04a91ec3;
-            #remoteBuild = true;
-            
-          };
-          _004f17e5 = {
-            hostname = "004f17e5";
-            profiles.system.path =
-              deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations._004f17e5;
-            #remoteBuild = true;
-            
-          };
-          fe127cb3 = {
-            hostname = "fe127cb3";
-            profiles.system.path =
-              deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.fe127cb3;
-            #remoteBuild = true;
-            
-          };
-          _8d4cb64d = {
-            hostname = "clusterhat";
-            profiles.system.path =
-              deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations._8d4cb64d;
-            #remoteBuild = true;
-            
-          };  
+
+
         };
       };
     };
