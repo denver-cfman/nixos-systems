@@ -15,11 +15,11 @@ nix flake show --all-systems --json github:denver-cfman/nixos-systems?ref=main |
 ### remote update nix (nixos-rebuild) on cluster head
 #### nixos-rebuild
 ```
-sudo nixos-rebuild switch --flake github:denver-cfman/nixos-micro-pi-cluster#_8d4cb64d --target-host 10.0.85.10 --use-remote-sudo --build-host 10.0.81.242
+sudo nixos-rebuild switch --flake github:denver-cfman/nixos-systems?ref=main#remote-nas1 --target-host 10.0.81.88 --use-remote-sudo --build-host 10.0.81.242
 ```
 #### deploy-rs
 ```
-K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/nixos-micro-pi-cluster#_8d4cb64d -- -s -d --ssh-user giezac --hostname 10.0.85.10
+K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/nixos-systems?ref=main#remote-nas1 -- -s -d --ssh-user giezac --hostname 10.0.81.88
 ```
 
 #### Test Compile of a single package
