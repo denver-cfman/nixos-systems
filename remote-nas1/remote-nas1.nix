@@ -81,15 +81,23 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    htop
     vim
     unzip
     jq  
-    iftop
     rsync
     mdadm
     tailscale
     neofetch
+    htop
+    btop
+    #btop-rocm
+    usbtop
+    iftop
+    iotop
+    #sysdig
+    s-tui
+    fastfetch
+    ipfetch
   ];
 
   services.tailscale = {
