@@ -117,6 +117,9 @@
     ];
   };
 
+  users.users.root.openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPmNXnRi9A/6hQL0wxpyti2Qo+Sd8LZt0uLu/hSJ91tH root@R210ii"
+  ];
 
    programs.wireshark.enable = true;
 
