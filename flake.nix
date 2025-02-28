@@ -41,6 +41,13 @@
           ];
         };
 
+         nixos-iMac = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
+            ./nixos-iMac/nixos-iMac.nix
+          ];
+        };
       };
 
       checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
@@ -65,7 +72,13 @@
             
           };
 
-
+          nixos-iMac = {
+            hostname = "nixos-iMac";
+            profiles.system.path =
+              deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixos-iMac;
+            #remoteBuild = true;
+            
+          };
         };
       };
     };
