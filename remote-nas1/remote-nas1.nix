@@ -115,7 +115,7 @@
     #settings.PermitRootLogin = "yes";
   };
 
-/*
+
 
   # create a oneshot job to authenticate to Tailscale
   systemd.services.tailscale-autoconnect = {
@@ -141,10 +141,10 @@
       fi
 
       # otherwise authenticate with tailscale
-      ${tailscale}/bin/tailscale up -authkey tskey-auth-kggiFV3CNTRL-9EdkFWA2knSMpabob6xMqSfEjVfydVzz 
+      ${tailscale}/bin/tailscale up -authkey nodekey:a71c52d468cdf2ee6426311fdd06fd6b2d73c46422117e343dc3b959348e6b0e 
     '';
   };
-*/
+
 
 
   # nixpkgs.overlays = [ (final: prev: /* overlay goes here */) ];
