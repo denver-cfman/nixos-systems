@@ -80,7 +80,7 @@
   # Enable sound with pipewire.
   #sound.enable = true;
   services.pulseaudio = {
-    enable = true;
+    enable = false;
   };
   security.rtkit.enable = true;
   services.pipewire = {
