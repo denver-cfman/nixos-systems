@@ -157,11 +157,10 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
-    scrounge-ntfs
-    ntfs3g
     vim
     wget
     htop
+    btop
     iftop
     curl
     git
