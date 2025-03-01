@@ -130,6 +130,7 @@
       enable = true;
       autoPrune.enable = true;
     };
+    /*
     virtualbox = {
       host = {
         enable = true;
@@ -145,7 +146,8 @@
         seamless = true;
       };
     };
-  };
+    */  
+};
 
   users.extraGroups.vboxusers.members = [ "giezac" ];
 
