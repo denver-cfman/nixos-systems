@@ -130,7 +130,6 @@
       enable = true;
       autoPrune.enable = true;
     };
-    /*
     virtualbox = {
       host = {
         enable = true;
@@ -139,14 +138,7 @@
         enableWebService = true;
         #package = "";
       };
-      guest = {
-        enable = true;
-        dragAndDrop = true;
-        clipboard = true;
-        seamless = true;
-      };
     };
-    */  
 };
 
   users.extraGroups.vboxusers.members = [ "giezac" ];
