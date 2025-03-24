@@ -15,4 +15,4 @@ nix flake show --all-systems --json github:denver-cfman/nixos-systems?ref=main |
 | System | Notes |
 |---|---|
 | [remote-nas1](./remote-nas1/readme.md) | Test NAS System |
-| [remote-nas1](./remote-nas1/readme.md) | Test NAS System |
+| [nixos-iMac](./nixos-iMac/readme.md) | Test iMac Build System |
