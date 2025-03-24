@@ -115,7 +115,7 @@
     #settings.PermitRootLogin = "yes";
   };
 
-
+/*
 
   # create a oneshot job to authenticate to Tailscale
   systemd.services.tailscale-autoconnect = {
@@ -145,7 +145,7 @@
     '';
   };
 
-
+*/
 
   # nixpkgs.overlays = [ (final: prev: /* overlay goes here */) ];
 
