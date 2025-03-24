@@ -12,17 +12,7 @@ nix flake check -v -L --no-build --no-write-lock-file --all-systems github:denve
 nix flake show --all-systems --json github:denver-cfman/nixos-systems?ref=main | jq '.'
 ```
 
-### remote update nix (nixos-rebuild) on cluster head
-#### nixos-rebuild
-```
-sudo nixos-rebuild switch --flake github:denver-cfman/nixos-systems?ref=main#remote-nas1 --target-host 10.0.81.88 --use-remote-sudo --build-host 10.0.81.242
-```
-#### deploy-rs
-```
-K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/nixos-systems?ref=main#remote-nas1 -- -s -d --ssh-user giezac --hostname 10.0.81.88
-```
-
-#### Test Compile of a single package
-```
-nix build github:NixOS/nixpkgs/e4f449ab51a283676d3b520c3dbaa3eafa5025b4#pkgsCross.aarch64-multiplatform.screen
-```
+| System | Notes |
+|---|---|
+| [remote-nas1](./remote-nas1/readme.md) | Test NAS System |
+| [remote-nas1](./remote-nas1/readme.md) | Test NAS System |
