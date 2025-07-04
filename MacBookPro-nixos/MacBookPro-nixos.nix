@@ -118,7 +118,6 @@ services.pipewire = {
      htop
      btop
      vscode-with-extensions
-     vscode-extension-update
      _1password-gui
      _1password-cli
      prusa-slicer
