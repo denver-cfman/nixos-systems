@@ -1,9 +1,7 @@
 #
-# nix flake check --no-build github:denver-cfman/nixos-micro-pi-cluster?ref=main
-# nix flake show --no-build github:denver-cfman/nixos-micro-pi-cluster?ref=main
 #
 {
-  description = "Flake for building a Raspberry Pi Zero 2 SD image";
+  description = "Flake for Giezen Consulting NixOS Systems";
 
   inputs = {
     #nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -48,6 +46,13 @@
             ./nixos-iMac/nixos-iMac.nix
           ];
         };
+         MacBookPro-nixos = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
+            ./MacBookPro-nixos/MacBookPro-nixos.nix
+          ];
+        };
       };
 
       checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
@@ -69,15 +74,18 @@
             profiles.system.path =
               deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.remote-nas1;
             #remoteBuild = true;
-            
           };
-
           nixos-iMac = {
             hostname = "nixos-iMac";
             profiles.system.path =
               deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixos-iMac;
             #remoteBuild = true;
-            
+          };
+          MacBookPro-nixos = {
+            hostname = "MacBookPro-nixos";
+            profiles.system.path =
+              deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.MacBookPro-nixos;
+            #remoteBuild = true;
           };
         };
       };
