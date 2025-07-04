@@ -112,26 +112,26 @@ services.pipewire = {
     description = "giezac";
     extraGroups = [ "wireshark" "networkmanager" "wheel" ];
     packages = with pkgs; [
-     powershell
-     vscode-extensions.ms-vscode.powershell
-     vim
-     htop
-     btop
-     vscode-with-extensions
-     _1password-gui
-     _1password-cli
-     prusa-slicer
-     neofetch 
-     f3
-     oh-my-zsh
-     chromium
-     wireshark
-     meld
-     gparted
-     obs-studio
-     termius
-     hfsprogs  
-  ];
+	     powershell
+	     vscode-with-extensions
+	     vscode-extensions.ms-vscode.powershell
+	     vim
+	     htop
+	     btop
+	     _1password-gui
+	     _1password-cli
+	     prusa-slicer
+	     neofetch 
+	     f3
+	     oh-my-zsh
+	     chromium
+	     wireshark
+	     meld
+	     gparted
+	     obs-studio
+	     termius
+	     hfsprogs  
+     ];
   };
 
   # Install firefox.
