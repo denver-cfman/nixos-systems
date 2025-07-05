@@ -60,9 +60,6 @@
       gdm = {
         enable = true;
       };
-      gnome = {
-        enable = true;
-      };
       autoLogin = {
         enable = true;
         user = "giezac";
