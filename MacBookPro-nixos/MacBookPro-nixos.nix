@@ -170,22 +170,22 @@ services.pipewire = {
       enable = true;
       autoPrune.enable = true;
     };
-    virtualbox = {
-      host = {
-        enable = true;
-        enableExtensionPack = true;
-        addNetworkInterface = true;
-        enableWebService = true;
-        #package = "";
-      };
-    };
+    #virtualbox = {
+    #  host = {
+    #    enable = true;
+    #    enableExtensionPack = true;
+    #    addNetworkInterface = true;
+    #    enableWebService = true;
+    #    #package = "";
+    # };
+    #};
 };
 
 
   boot.blacklistedKernelModules = [ "kvm_intel" ]; 
 
 
-  users.extraGroups.vboxusers.members = [ "giezac" ];
+  #users.extraGroups.vboxusers.members = [ "giezac" ];
 
 
   # Allow unfree packages
@@ -194,7 +194,7 @@ services.pipewire = {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
-    virtualbox
+    #virtualbox
     slack
     bluebubbles
     hplipWithPlugin
