@@ -4,18 +4,18 @@
 ---
 ### check this flake
 ```
-nix flake check -v -L --no-build --no-write-lock-file --all-systems github:denver-cfman/nixos-systems?ref=main
+nix flake check -v -L --no-build --no-write-lock-file --all-systems --refresh github:denver-cfman/nixos-systems?ref=main
 ```
 
 ### show this flake
 ```
-nix flake show --all-systems --json github:denver-cfman/nixos-systems?ref=main | jq '.'
+nix flake show --all-systems --json --refresh github:denver-cfman/nixos-systems?ref=main | jq '.'
 ```
 
 ### remote update nix (nixos-rebuild) on cluster head
 #### nixos-rebuild
 ```
-sudo nixos-rebuild switch --flake github:denver-cfman/nixos-systems?ref=main#MacBookPro-nixos
+sudo nixos-rebuild switch --refresh --flake github:denver-cfman/nixos-systems?ref=main#MacBookPro-nixos
 ```
 #### deploy-rs
 ```
