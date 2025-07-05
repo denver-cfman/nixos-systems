@@ -15,7 +15,7 @@ nix flake show --all-systems --json github:denver-cfman/nixos-systems?ref=main |
 ### remote update nix (nixos-rebuild) on cluster head
 #### nixos-rebuild
 ```
-sudo nixos-rebuild switch --flake github:denver-cfman/nixos-systems?ref=main#remote-nas1 --target-host 10.0.81.88 --use-remote-sudo --build-host 10.0.81.242
+sudo nixos-rebuild switch --impure --refresh --flake github:denver-cfman/nixos-systems?ref=main#remote-nas1 --target-host 10.0.81.88 --use-remote-sudo --build-host 10.0.81.242
 ```
 #### deploy-rs
 ```
