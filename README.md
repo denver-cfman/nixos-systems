@@ -9,7 +9,7 @@ nix flake check -v -L --no-build --no-write-lock-file --all-systems --refresh gi
 
 ### show this flake
 ```
-nix flake show --all-systems --json github:denver-cfman/nixos-systems?ref=main | jq '.'
+nix flake show --all-systems --json --refresh github:denver-cfman/nixos-systems?ref=main | jq '.'
 ```
 
 | System | Notes |
