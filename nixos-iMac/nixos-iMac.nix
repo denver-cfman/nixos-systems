@@ -53,20 +53,16 @@
       variant = "";
       layout = "us";
     };
-    displayManager = {
-      gdm = {
-        enable = true;
-      };
-    };
-    desktopManager = {
-      gnome = {
-        enable = true;
-      };
-    };
   };
 
   services = {
     displayManager = {
+      gdm = {
+        enable = true;
+      };
+      gnome = {
+        enable = true;
+      };
       autoLogin = {
         enable = true;
         user = "giezac";
