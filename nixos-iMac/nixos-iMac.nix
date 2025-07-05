@@ -128,15 +128,15 @@
       enable = true;
       autoPrune.enable = true;
     };
-    virtualbox = {
-      host = {
-        enable = true;
-        enableExtensionPack = true;
-        addNetworkInterface = true;
-        enableWebService = true;
-        #package = "";
-      };
-    };
+    #virtualbox = {
+    #  host = {
+    #    enable = true;
+    #    enableExtensionPack = true;
+    #    addNetworkInterface = true;
+    #    enableWebService = true;
+    #    #package = "";
+    #  };
+    #};
 };
 
   users.extraGroups.vboxusers.members = [ "giezac" ];
@@ -151,6 +151,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
+    #virtualbox
     vim
     wget
     htop
