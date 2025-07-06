@@ -38,7 +38,6 @@
             ./remote-nas1/remote-nas1.nix
           ];
         };
-
          nixos-iMac = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
@@ -51,6 +50,13 @@
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
             ./MacBookPro-nixos/MacBookPro-nixos.nix
+          ];
+        };
+         ha-console1 = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
+            ./ha-console1/ha-console1.nix
           ];
         };
       };
@@ -85,6 +91,12 @@
             hostname = "MacBookPro-nixos";
             profiles.system.path =
               deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.MacBookPro-nixos;
+            #remoteBuild = true;
+          };
+          ha-console1 = {
+            hostname = "ha-console1";
+            profiles.system.path =
+              deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ha-console1;
             #remoteBuild = true;
           };
         };
