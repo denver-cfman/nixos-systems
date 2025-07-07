@@ -33,4 +33,15 @@
   # Other Home Manager options (refer to the Home Manager manual for a full list)
   # services.gpg-agent.enable = true;
   # xresources.enable = true;
+
+  xdg.autostart = {
+    "homeassistant-startup" = {
+      enable = true;
+      name = "Start HomeAssistant Dashboard on Login";
+      comment = "Launches HomeAssistant Dashboard via Firefox when Cinnamon starts.";
+      exec = "${pkgs.alacritty}/bin/firefox --kiosk http://10.0.50.47:8123/bd-test1/0";
+    };
+  };
+  xdg.enable = true;
+
 }
