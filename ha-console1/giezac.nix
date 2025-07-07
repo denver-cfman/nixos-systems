@@ -11,6 +11,18 @@
     userEmail = "denver.cfman@gmail.com";
   };
 
+  dconf.settings = {
+    "org/cinnamon/desktop/session" = {
+      lock-on-suspend = false;
+    };
+    "org/cinnamon/desktop/screensaver" = {
+      lock-enabled = false;
+      # If lock-enabled = false doesn't work, try a very long delay:
+      # idle-activation-enabled = true; # Ensure idle activation is on if you want the delay to work
+      # idle-delay = 7200; # 2 hours in seconds
+    };
+  };
+
   home.packages = with pkgs; [
     htop
   ];
