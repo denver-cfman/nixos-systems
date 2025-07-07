@@ -63,6 +63,14 @@
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
             ./ha-console1/ha-console1.nix
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.giezac = import ./ha-console1/giezac.nix;
+              
+              # Optionally pass extra arguments to your home.nix
+              home-manager.extraSpecialArgs = { inherit inputs; }; 
+            }
           ];
         };
       };
