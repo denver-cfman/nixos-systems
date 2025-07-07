@@ -9,6 +9,11 @@
     deploy-rs.url = "github:serokell/deploy-rs";
     #colmena.url = "github:zhaofengli/colmena";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      # Ensure home-manager uses the same nixpkgs as your system for consistency.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -28,7 +33,7 @@
         })
       ];
       specialArgs = {
-        inherit nixos-hardware inputs;
+        inherit inputs nixos-hardware home-manager;
       };
     in rec {
       nixosConfigurations = {
