@@ -70,7 +70,7 @@
               
               # Optionally pass extra arguments to your home.nix
               home-manager.extraSpecialArgs = { inherit inputs; }; 
-            };
+            }
           ];
         };
       };
