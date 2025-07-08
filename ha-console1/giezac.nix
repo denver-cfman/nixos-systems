@@ -24,6 +24,7 @@
   };
 
   home.packages = with pkgs; [
+    xscreensaver
     htop
   ];
 
@@ -37,17 +38,13 @@
   # Ensure xscreensaver is enabled
   services.xscreensaver = {
     enable = true;
-    
-    # You can specify the package if you have a custom one,
-    # but usually the default is fine:
-    # package = pkgs.xscreensaver; 
 
     # Define your xscreensaver settings here
     # These correspond to the entries you'd find in ~/.xscreensaver or the xscreensaver-demo settings
     settings = {
       # Basic settings
-      mode = "random"; # "random", "blank", "one", "off"
-      lock = true;     # Whether to lock the screen when the screensaver activates
+      mode = "one"; # "random", "blank", "one", "off"
+      lock = false;     # Whether to lock the screen when the screensaver activates
       timeout = "0:10:00"; # Blank after 10 minutes of inactivity (HH:MM:SS)
       cycle = "0:05:00";   # Change screensaver every 5 minutes
       lockTimeout = "0:00:00"; # Grace period before locking (0 means lock immediately)
@@ -62,18 +59,8 @@
       dpmsEnabled = true; # Let xscreensaver manage DPMS
       dpmsQuickOff = false;
       
-      # Select specific screensavers or exclude some
-      # The 'programs' setting is a bit more complex.
-      # It expects a string with newline-separated commands for screensavers.
-      # Each line starts with a backslash and then the command for the screensaver hack.
-      # You'll need to know the exact path to the screensaver executables (hacks).
-      # You can find these in /nix/store/<hash>-xscreensaver-<version>/libexec/xscreensaver/
-      # Or usually just the hack name if it's in the standard path.
       programs = ''
-        GL: glmatrix -root
-        GL: moire2 -root
-        webcollage -root -collage
-        flurry -root
+        GL: glslideshow -root
       '';
 
       # Text settings (if you use text-based screensavers)
