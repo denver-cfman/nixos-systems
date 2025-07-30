@@ -103,6 +103,7 @@
       neofetch 
       f3
       woeusb-ng
+      ntfs3g
       oh-my-zsh
       chromium
       firefox 
