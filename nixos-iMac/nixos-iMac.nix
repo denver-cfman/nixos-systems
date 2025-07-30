@@ -102,6 +102,7 @@
     packages = with pkgs; [
       neofetch 
       f3
+      woeusb-ng
       oh-my-zsh
       chromium
       firefox 
