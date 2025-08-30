@@ -57,6 +57,8 @@
   services.xserver.xkb = {
     layout = "us";
     variant = "";
+    model = "macintosh_vndr/apple";
+    options = "caps:swapescape"; # Optional: Swaps Caps Lock and Escape
   };
 
   # Enable CUPS to print documents.
@@ -168,6 +170,7 @@ services.pipewire = {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
+    xorg.setxkbmap
     #virtualbox
     slack
     bluebubbles
