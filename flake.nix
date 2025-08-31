@@ -27,7 +27,8 @@
     deploy-rs,
     #colmena,
     nixos-hardware,
-    home-manager
+    home-manager,
+    pinned-nixpkgs
   }@inputs:
     let
       # see https://github.com/NixOS/nixpkgs/issues/154163
