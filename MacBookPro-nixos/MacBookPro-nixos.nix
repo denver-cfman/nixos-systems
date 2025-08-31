@@ -104,14 +104,6 @@ services.pipewire = {
   };
 };
 
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      # Override the package with the version from the pinned-nixpkgs
-      termius = pinned-nixpkgs.termius;
-    })
-  ];
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
