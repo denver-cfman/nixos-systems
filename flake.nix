@@ -37,6 +37,9 @@
           makeModulesClosure = x:
             super.makeModulesClosure (x // { allowMissing = true; });
         })
+        (final: prev: { 
+          termius = pinned-nixpkgs.legacyPackages.${final.system}.termius;
+        })
       ];
       specialArgs = {
         inherit inputs nixos-hardware home-manager;
@@ -62,7 +65,6 @@
           modules = [
             ({ config, pkgs, pinned-nixpkgs, ... }: { nixpkgs.overlays = overlays; })
             ./MacBookPro-nixos/MacBookPro-nixos.nix
-            (final: prev: { termius = pinned-nixpkgs.legacyPackages.${final.system}.termius; })
           ];
         };
          ha-console1 = nixpkgs.lib.nixosSystem {
