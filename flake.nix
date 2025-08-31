@@ -47,6 +47,12 @@
       specialArgs = {
         inherit inputs nixos-hardware home-manager pinned-nixpkgs;
       };
+
+      configuredPkgs = import nixpkgs {
+        inherit (self) outputs;
+        config.allowUnfree = true;
+      };
+
     in rec {
       nixosConfigurations = {
          remote-nas1 = nixpkgs.lib.nixosSystem {
@@ -66,6 +72,7 @@
          MacBookPro-nixos = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
+            { nixpkgs.config.allowUnfree = true; }
             ({ config, pkgs, pinned-nixpkgs, ... }: { nixpkgs.overlays = overlays; })
             ./MacBookPro-nixos/MacBookPro-nixos.nix
           ];
