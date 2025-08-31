@@ -14,11 +14,6 @@
       # Ensure home-manager uses the same nixpkgs as your system for consistency.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Pinned Nixpkgs for a specific package
-    pinned-nixpkgs = {
-      url = "github:NixOS/nixpkgs/bd3bac8bfb542dbde7ffffb6987a1a1f9d41699f";
-    };
   };
 
   outputs = {
@@ -27,8 +22,7 @@
     deploy-rs,
     #colmena,
     nixos-hardware,
-    home-manager,
-    pinned-nixpkgs
+    home-manager
   }@inputs:
     let
       # see https://github.com/NixOS/nixpkgs/issues/154163
@@ -42,8 +36,8 @@
         (final: prev: {
           termius = prev.termius.overrideAttrs (oldAttrs: {
             __intentionallyOverridingVersion = true;
-            version = "9.30.0";
-            revision = "236";
+            version = "9.26.0";
+            revision = "232";
               # find the latest version with
               # curl -H 'X-Ubuntu-Series: 16' https://api.snapcraft.io/api/v1/snaps/details/termius-app | jq '.version'
               # and the url with
@@ -51,7 +45,7 @@
               # and the sha512 with
               # curl -H 'X-Ubuntu-Series: 16' https://api.snapcraft.io/api/v1/snaps/details/termius-app | jq '.download_sha512' -r
           });
-          termius-9-30-0 = final.termius;
+          termius-9-26-0 = final.termius;
         })
 
       ];
