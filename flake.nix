@@ -52,6 +52,12 @@
       ];
       specialArgs = {
         inherit inputs nixos-hardware home-manager pinned-nixpkgs;
+        pkgs = import nixpkgs {
+          inherit (self) outputs;
+          config = {
+            allowUnfree = true;
+          };
+        };
       };
     in rec {
       nixosConfigurations = {
