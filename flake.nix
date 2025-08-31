@@ -39,19 +39,11 @@
             super.makeModulesClosure (x // { allowMissing = true; });
         })
 
-        (final: prev: { 
-          termius = pinned-nixpkgs.legacyPackages.${final.system}.termius;
-          config = {
-            allowUnfree = true;
-            allowAliases = true;
-          };
-        })
-
       ];
       specialArgs = {
         inherit inputs nixos-hardware home-manager pinned-nixpkgs;
         pkgs-termius-9-16-0 = import pinned-nixpkgs {
-          #inherit system;
+          inherit system;
           config.allowUnFree = true;
         };
       };
