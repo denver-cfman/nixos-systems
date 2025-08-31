@@ -24,5 +24,5 @@ K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/
 
 #### Test Compile of a single package
 ```
-nix build github:NixOS/nixpkgs/e4f449ab51a283676d3b520c3dbaa3eafa5025b4#pkgsCross.aarch64-multiplatform.screen
+nix build --impure github:NixOS/nixpkgs/bd3bac8bfb542dbde7ffffb6987a1a1f9d41699f#termius
 ```
