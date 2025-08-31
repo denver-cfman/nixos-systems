@@ -130,7 +130,6 @@ services.pipewire = {
 	     meld
 	     gparted
 	     obs-studio
-	     pkgs-termius-9-16-0.termius # install ver 9.16.0 of Termius
 	     hfsprogs  
      ];
   };
@@ -205,6 +204,7 @@ services.pipewire = {
     xscreensaver
     pavucontrol
     rpi-imager
+    pkgs-termius-9-16-0.termius # install ver 9.16.0 of Termius
   ];
 
 services.xscreensaver = {
