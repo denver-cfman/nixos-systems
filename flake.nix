@@ -51,10 +51,6 @@
       ];
       specialArgs = {
         inherit inputs nixos-hardware home-manager;
-
-        pkgs-termius-9-16-0 = import pinned-nixpkgs {
-          config.allowUnFree = true;
-        };
       };
 
     in rec {
