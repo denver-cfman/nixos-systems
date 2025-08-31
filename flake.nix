@@ -45,9 +45,6 @@
 
         pkgs-termius-9-16-0 = import pinned-nixpkgs {
           config.allowUnFree = true;
-          config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-             "termius"
-           ];
         };
       };
 
