@@ -54,7 +54,7 @@
               hash = "sha512-2zGt4nL8E99s4J9vmzKoOGgEI3XnEx3m7JwFkWuT5wYv/JWoJWnh9dNWlHzRHPpLU8/lAZUG2F4AVYCmPGa96A==";
             };
           });
-          termius-9-28-0 = final.termius
+          termius-9-28-0 = final.termius;
         })
 
       ];
