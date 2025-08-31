@@ -41,6 +41,7 @@
 
         (final: prev: { 
           termius = pinned-nixpkgs.legacyPackages.${final.system}.termius;
+          config.allowUnfree = true;
         })
 
       ];
