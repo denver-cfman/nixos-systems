@@ -15,7 +15,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
 
-
+  nixpkgs.config.permittedInsecurePackages = [
+	"qtwebengine-5.15.19"
+  ];
 
 
   networking.hostName = "MacBookPro-nixos"; # Define your hostname.
