@@ -18,6 +18,9 @@
     # Pinned Nixpkgs for a specific package
     pinned-nixpkgs = {
       url = "github:NixOS/nixpkgs/bd3bac8bfb542dbde7ffffb6987a1a1f9d41699f";
+      config = {
+        allowUnfree = config.nixpkgs.config.allowUnfree or false;
+      };
     };
   };
 
@@ -39,7 +42,6 @@
         })
         (final: prev: { 
           termius = pinned-nixpkgs.legacyPackages.${final.system}.termius;
-          nixpkgs.config.allowUnfree = true;
         })
       ];
       specialArgs = {
