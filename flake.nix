@@ -40,7 +40,7 @@
         })
 
         (final: prev: {
-          termius = prev.termius.override {
+          termius = prev.termius.overrideAttrs (oldAttrs: {
             version = "9.28.0";
             revision = "234";
           };
