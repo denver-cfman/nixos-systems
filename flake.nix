@@ -39,6 +39,14 @@
             super.makeModulesClosure (x // { allowMissing = true; });
         })
 
+        (final: prev: {
+          termius = prev.termius.override {
+            version = "9.28.0";
+            revision = "234";
+          }
+          termius-custom = final.termius;
+        })
+
       ];
       specialArgs = {
         inherit inputs nixos-hardware home-manager;
