@@ -18,9 +18,6 @@
     # Pinned Nixpkgs for a specific package
     pinned-nixpkgs = {
       url = "github:NixOS/nixpkgs/bd3bac8bfb542dbde7ffffb6987a1a1f9d41699f";
-      config = {
-        allowUnfree = config.nixpkgs.config.allowUnfree or false;
-      };
     };
   };
 
@@ -64,6 +61,9 @@
           ];
         };
          MacBookPro-nixos = nixpkgs.lib.nixosSystem {
+          config = {
+            allowUnfree = config.nixpkgs.config.allowUnfree or false;
+          };
           inherit specialArgs;
           modules = [
             ({ config, pkgs, pinned-nixpkgs, ... }: { nixpkgs.overlays = overlays; })
