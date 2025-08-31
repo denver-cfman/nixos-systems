@@ -37,9 +37,17 @@
           makeModulesClosure = x:
             super.makeModulesClosure (x // { allowMissing = true; });
         })
+
         (final: prev: { 
           termius = pinned-nixpkgs.legacyPackages.${final.system}.termius;
         })
+
+        (final: prev: {
+          config = prev.config // {
+            allowUnfree = true;
+          };
+        })
+
       ];
       specialArgs = {
         inherit inputs nixos-hardware home-manager pinned-nixpkgs;
