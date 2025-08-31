@@ -34,12 +34,6 @@
       # see https://github.com/NixOS/nixpkgs/issues/154163
       overlays = [
 
-        (final: prev: {
-          config = prev.config // {
-            allowUnfree = true;
-          };
-        })
-
         (final: super: {
           makeModulesClosure = x:
             super.makeModulesClosure (x // { allowMissing = true; });
@@ -52,12 +46,6 @@
       ];
       specialArgs = {
         inherit inputs nixos-hardware home-manager pinned-nixpkgs;
-        pkgs = import nixpkgs {
-          inherit (self) outputs;
-          config = {
-            allowUnfree = true;
-          };
-        };
       };
     in rec {
       nixosConfigurations = {
