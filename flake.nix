@@ -14,6 +14,11 @@
       # Ensure home-manager uses the same nixpkgs as your system for consistency.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Pinned Nixpkgs for a specific package
+    pinned-nixpkgs = {
+      url = "github:NixOS/nixpkgs/bd3bac8bfb542dbde7ffffb6987a1a1f9d41699f";
+    };
   };
 
   outputs = {
