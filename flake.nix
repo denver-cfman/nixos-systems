@@ -39,6 +39,7 @@
         })
         (final: prev: { 
           termius = pinned-nixpkgs.legacyPackages.${final.system}.termius;
+          nixpkgs.config.allowUnfree = true;
         })
       ];
       specialArgs = {
