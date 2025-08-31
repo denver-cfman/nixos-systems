@@ -130,7 +130,7 @@ services.pipewire = {
 	     meld
 	     gparted
 	     obs-studio
-	     termius
+	     pkgs-termius-9-16-0.termius # install ver 9.16.0 of Termius
 	     hfsprogs  
      ];
   };
