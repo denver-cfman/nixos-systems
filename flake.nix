@@ -48,11 +48,6 @@
         };
       };
 
-      configuredPkgs = import nixpkgs {
-        inherit (self) outputs;
-        config.allowUnfree = true;
-      };
-
     in rec {
       nixosConfigurations = {
          remote-nas1 = nixpkgs.lib.nixosSystem {
