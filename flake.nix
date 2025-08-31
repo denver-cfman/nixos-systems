@@ -44,7 +44,6 @@
             version = "9.28.0";
             revision = "234";
           }
-          termius-custom = final.termius;
         })
 
       ];
