@@ -33,6 +33,13 @@
     let
       # see https://github.com/NixOS/nixpkgs/issues/154163
       overlays = [
+
+        (final: prev: {
+          config = prev.config // {
+            allowUnfree = true;
+          };
+        })
+
         (final: super: {
           makeModulesClosure = x:
             super.makeModulesClosure (x // { allowMissing = true; });
@@ -40,12 +47,6 @@
 
         (final: prev: { 
           termius = pinned-nixpkgs.legacyPackages.${final.system}.termius;
-        })
-
-        (final: prev: {
-          config = prev.config // {
-            allowUnfree = true;
-          };
         })
 
       ];
