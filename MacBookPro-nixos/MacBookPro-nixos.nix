@@ -4,22 +4,6 @@
 
 { config, pkgs, ... }:
 
-
-let
-  # Define a pinned version of nixpkgs
-  pinned-nixpkgs = import (builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/bd3bac8bfb542dbde7ffffb6987a1a1f9d41699f.tar.gz";
-    # The sha256 can be obtained by running:
-    # nix-prefetch-url --unpack https://github.com/NixOS/nixpkgs/archive/PUT_COMMIT_HASH_HERE.tar.gz
-    sha256 = "164nihsswlm9q3i1ac28z9ll9lzc2k6qpqz11bhvvnldr2m180lc";
-  }) {
-    # Pass the system's configuration to the pinned nixpkgs
-    config = {
-      allowUnfree = config.nixpkgs.config.allowUnfree or false;
-    };
-  };
-in
-
 {
   imports =
     [ # Include the results of the hardware scan.
