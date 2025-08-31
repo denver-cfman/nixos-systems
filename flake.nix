@@ -41,6 +41,7 @@
 
         (final: prev: {
           termius = prev.termius.overrideAttrs (oldAttrs: {
+            __intentionallyOverridingVersion = true;
             version = "9.30.0";
             revision = "236";
               # find the latest version with
@@ -50,7 +51,7 @@
               # and the sha512 with
               # curl -H 'X-Ubuntu-Series: 16' https://api.snapcraft.io/api/v1/snaps/details/termius-app | jq '.download_sha512' -r
           });
-          termius-9-28-0 = final.termius;
+          termius-9-30-0 = final.termius;
         })
 
       ];
