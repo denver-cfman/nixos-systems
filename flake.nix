@@ -71,6 +71,7 @@
         };
          MacBookPro-nixos = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
+          useGlobalPkgs = true;
           modules = [
             { nixpkgs.config.allowUnfree = true; }
             ({ config, pkgs, pinned-nixpkgs, ... }: { nixpkgs.overlays = overlays; })
