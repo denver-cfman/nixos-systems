@@ -42,18 +42,14 @@
 
         (final: prev: {
           termius = prev.termius.overrideAttrs (oldAttrs: {
-            version = "9.28.0";
-            revision = "234";
-            src = fetchurl {
+            version = "9.30.0";
+            revision = "236";
               # find the latest version with
               # curl -H 'X-Ubuntu-Series: 16' https://api.snapcraft.io/api/v1/snaps/details/termius-app | jq '.version'
               # and the url with
               # curl -H 'X-Ubuntu-Series: 16' https://api.snapcraft.io/api/v1/snaps/details/termius-app | jq '.download_url' -r
               # and the sha512 with
               # curl -H 'X-Ubuntu-Series: 16' https://api.snapcraft.io/api/v1/snaps/details/termius-app | jq '.download_sha512' -r
-              url = "https://api.snapcraft.io/api/v1/snaps/download/WkTBXwoX81rBe3s3OTt3EiiLKBx2QhuS_${revision}.snap";
-              hash = "sha512-2zGt4nL8E99s4J9vmzKoOGgEI3XnEx3m7JwFkWuT5wYv/JWoJWnh9dNWlHzRHPpLU8/lAZUG2F4AVYCmPGa96A==";
-            };
           });
           termius-9-28-0 = final.termius;
         })
