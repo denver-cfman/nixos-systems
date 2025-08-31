@@ -42,7 +42,7 @@
         })
       ];
       specialArgs = {
-        inherit inputs nixos-hardware home-manager;
+        inherit inputs nixos-hardware home-manager pinned-nixpkgs;
       };
     in rec {
       nixosConfigurations = {
