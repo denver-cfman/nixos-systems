@@ -204,7 +204,7 @@ services.pipewire = {
     xscreensaver
     pavucontrol
     rpi-imager
-    termius # install ver 9.16.0 of Termius
+    termius-9-30-0 # install ver 9.30.0 of Termius
   ];
 
 services.xscreensaver = {
