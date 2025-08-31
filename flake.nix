@@ -41,7 +41,7 @@
 
       ];
       specialArgs = {
-        inherit inputs nixos-hardware home-manager pinned-nixpkgs;
+        inherit inputs nixos-hardware home-manager;
 
         pkgs-termius-9-16-0 = import pinned-nixpkgs {
           config.allowUnFree = true;
@@ -67,7 +67,7 @@
          MacBookPro-nixos = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
-            ({ config, pkgs, pinned-nixpkgs, pkgs-termius-9-16-0, ... }: { nixpkgs.overlays = overlays; })
+            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
             ./MacBookPro-nixos/MacBookPro-nixos.nix
           ];
         };
