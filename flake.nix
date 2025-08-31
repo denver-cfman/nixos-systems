@@ -60,8 +60,9 @@
          MacBookPro-nixos = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
+            ({ config, pkgs, pinned-nixpkgs, ... }: { nixpkgs.overlays = overlays; })
             ./MacBookPro-nixos/MacBookPro-nixos.nix
+            (final: prev: { your-package-name = pinned-nixpkgs.legacyPackages.${final.system}.your-package-name; })
           ];
         };
          ha-console1 = nixpkgs.lib.nixosSystem {
