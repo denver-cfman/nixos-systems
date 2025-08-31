@@ -4,6 +4,22 @@
 
 { config, pkgs, ... }:
 
+
+let
+  # Define a pinned version of nixpkgs
+  pinned-nixpkgs = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/PUT_COMMIT_HASH_HERE.tar.gz";
+    # The sha256 can be obtained by running:
+    # nix-prefetch-url --unpack https://github.com/NixOS/nixpkgs/archive/PUT_COMMIT_HASH_HERE.tar.gz
+    sha256 = "PUT_SHA256_HASH_HERE";
+  }) {
+    # Pass the system's configuration to the pinned nixpkgs
+    config = {
+      allowUnfree = config.nixpkgs.config.allowUnfree or false;
+    };
+  };
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -105,6 +121,13 @@ services.pipewire = {
 };
 
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      # Override the package with the version from the pinned-nixpkgs
+      termius = pinned-nixpkgs.termius;
+    })
+  ];
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -168,6 +191,7 @@ services.pipewire = {
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 
   environment.systemPackages = with pkgs; [
     mission-center
