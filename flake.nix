@@ -23,6 +23,7 @@
 
   outputs = {
     self,
+    fetchurl,
     nixpkgs,
     deploy-rs,
     #colmena,
