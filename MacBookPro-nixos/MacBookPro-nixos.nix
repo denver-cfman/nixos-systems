@@ -189,6 +189,8 @@ services.pipewire = {
 
   environment.systemPackages = with pkgs; [
     iwd
+    pciutils
+    net-tools
     mission-center
     xorg.setxkbmap
     #virtualbox
