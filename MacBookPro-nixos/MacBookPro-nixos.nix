@@ -190,6 +190,7 @@ services.pipewire = {
   environment.systemPackages = with pkgs; [
     iwd
     pciutils
+    usbutils
     net-tools
     mission-center
     xorg.setxkbmap
