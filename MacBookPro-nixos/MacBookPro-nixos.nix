@@ -116,7 +116,7 @@ services.pipewire = {
   users.users.giezac = {
     isNormalUser = true;
     description = "giezac";
-    extraGroups = [ "wireshark" "networkmanager" "wheel" ];
+    extraGroups = [ "wireshark" "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [
 	     powershell
 	     vscode-with-extensions
