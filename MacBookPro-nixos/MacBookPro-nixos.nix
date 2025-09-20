@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -61,6 +61,10 @@
     options = "caps:swapescape"; # Optional: Swaps Caps Lock and Escape
   };
 
+	services.xserver.displayManager.sessionCommands = ''
+	${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
+	'';
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -112,7 +116,7 @@ services.pipewire = {
   users.users.giezac = {
     isNormalUser = true;
     description = "giezac";
-    extraGroups = [ "wireshark" "networkmanager" "wheel" ];
+    extraGroups = [ "wireshark" "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [
 	     powershell
 	     vscode-with-extensions
