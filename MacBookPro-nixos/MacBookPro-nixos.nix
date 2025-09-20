@@ -62,7 +62,7 @@
   };
 
 	services.xserver.displayManager.sessionCommands = ''
-	    ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
+	${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
 	'';
 
   # Enable CUPS to print documents.
