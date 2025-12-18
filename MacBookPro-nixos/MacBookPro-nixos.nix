@@ -177,6 +177,7 @@ services.pipewire = {
   environment.systemPackages = with pkgs; [
     impression
     displaylink
+    k9s
     ollama
     mission-center
     xorg.setxkbmap
