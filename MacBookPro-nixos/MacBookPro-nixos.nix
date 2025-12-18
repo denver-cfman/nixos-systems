@@ -175,6 +175,7 @@ services.pipewire = {
   services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
 
   environment.systemPackages = with pkgs; [
+    impression
     displaylink
     ollama
     mission-center
