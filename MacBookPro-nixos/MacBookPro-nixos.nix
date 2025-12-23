@@ -205,11 +205,11 @@ services.pipewire = {
     python310
     screen
     terraform
-    terraform-providers.virtualbox
-    terraform-providers.tailscale
-    terraform-providers.proxmox
-    terraform-providers.openwrt
-    terraform-providers.docker
+    terraform-providers.terra-farm_virtualbox
+    terraform-providers.tailscale_tailscale
+    terraform-providers.telmate_proxmox
+    terraform-providers.joneshf_openwrt
+    terraform-providers.kreuzwerker_docker
     xscreensaver
     pavucontrol
     rpi-imager
