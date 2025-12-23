@@ -216,6 +216,10 @@ services.pipewire = {
     rpi-imager
   ];
 
+   permittedInsecurePackages = [
+	"qtwebengine-5.15.19"
+   ];
+
 services.xscreensaver = {
 	enable = true;
 };
