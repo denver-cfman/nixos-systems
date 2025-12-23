@@ -6,9 +6,13 @@
 
   # Enable programs and configure them
   programs.git = {
+    settings = {
+      user = {
+        name = "Zach Giezen";
+        email = "denver.cfman@gmail.com";
+      };
+    };
     enable = true;
-    userName = "Zach Giezen";
-    userEmail = "denver.cfman@gmail.com";
   };
 
   dconf.settings = {
