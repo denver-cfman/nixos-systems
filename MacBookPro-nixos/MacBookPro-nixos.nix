@@ -172,11 +172,10 @@ services.pipewire = {
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  services.xserver.videoDrivers = [ "modesetting" ];
 
   environment.systemPackages = with pkgs; [
     impression
-    displaylink
     k9s
     ollama
     mission-center
@@ -215,6 +214,10 @@ services.pipewire = {
     pavucontrol
     rpi-imager
   ];
+
+   nixpkgs.config.permittedInsecurePackages = [
+	"qtwebengine-5.15.19"
+   ];
 
 services.xscreensaver = {
 	enable = true;
