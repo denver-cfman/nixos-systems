@@ -177,7 +177,7 @@ services.pipewire = {
   environment.systemPackages = with pkgs; [
     impression
     k9s
-    ollama
+    #ollama
     mission-center
     xorg.setxkbmap
     #virtualbox
@@ -192,13 +192,15 @@ services.pipewire = {
     wget
     htop
     btop
+	usbtop
     iftop
+    nvtop
     curl
     git
     oh-my-zsh
     jq
     vlc
-    openshot-qt
+    #openshot-qt
     podman
     podman-desktop
     podman-compose
@@ -212,12 +214,12 @@ services.pipewire = {
     terraform-providers.kreuzwerker_docker
     xscreensaver
     pavucontrol
-    rpi-imager
+    #rpi-imager
   ];
 
-   nixpkgs.config.permittedInsecurePackages = [
-	"qtwebengine-5.15.19"
-   ];
+   #nixpkgs.config.permittedInsecurePackages = [
+   # "qtwebengine-5.15.19"
+   #];
 
 services.xscreensaver = {
 	enable = true;
