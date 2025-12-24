@@ -194,7 +194,8 @@ services.pipewire = {
     btop
 	usbtop
     iftop
-    nvtopPackages.apple
+    #nvtopPackages.apple
+    nvtopPackages.full
     curl
     git
     oh-my-zsh
