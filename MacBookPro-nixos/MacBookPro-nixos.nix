@@ -172,13 +172,12 @@ services.pipewire = {
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  services.xserver.videoDrivers = [ "modesetting" ];
 
   environment.systemPackages = with pkgs; [
     impression
-    displaylink
     k9s
-    ollama
+    #ollama
     mission-center
     xorg.setxkbmap
     #virtualbox
@@ -193,28 +192,35 @@ services.pipewire = {
     wget
     htop
     btop
+	usbtop
     iftop
+    #nvtopPackages.apple
+    nvtopPackages.full
     curl
     git
     oh-my-zsh
     jq
     vlc
-    openshot-qt
+    #openshot-qt
     podman
     podman-desktop
     podman-compose
     python310
     screen
     terraform
-    terraform-providers.virtualbox
-    terraform-providers.tailscale
-    terraform-providers.proxmox
-    terraform-providers.openwrt
-    terraform-providers.docker
+    terraform-providers.terra-farm_virtualbox
+    terraform-providers.tailscale_tailscale
+    terraform-providers.telmate_proxmox
+    terraform-providers.joneshf_openwrt
+    terraform-providers.kreuzwerker_docker
     xscreensaver
     pavucontrol
-    rpi-imager
+    #rpi-imager
   ];
+
+   #nixpkgs.config.permittedInsecurePackages = [
+   # "qtwebengine-5.15.19"
+   #];
 
 services.xscreensaver = {
 	enable = true;
