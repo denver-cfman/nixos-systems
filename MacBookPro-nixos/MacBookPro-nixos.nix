@@ -172,7 +172,9 @@ services.pipewire = {
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  services.xserver.videoDrivers = [ "modesetting" ];
+
+  #services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+
 
   environment.systemPackages = with pkgs; [
     impression
@@ -208,23 +210,23 @@ services.pipewire = {
     python310
     screen
     terraform
+    #xscreensaver
     terraform-providers.terra-farm_virtualbox
     terraform-providers.tailscale_tailscale
     terraform-providers.telmate_proxmox
     terraform-providers.joneshf_openwrt
     terraform-providers.kreuzwerker_docker
-    xscreensaver
     pavucontrol
     #rpi-imager
   ];
 
-   #nixpkgs.config.permittedInsecurePackages = [
-   # "qtwebengine-5.15.19"
-   #];
+#services.xscreensaver = {
+#	enable = true;
+#};
 
-services.xscreensaver = {
-	enable = true;
-};
+nixpkgs.config.permittedInsecurePackages = [
+    "qtwebengine-5.15.19"
+];
 
   boot.binfmt.emulatedSystems = [ 
     "aarch64-linux"
