@@ -172,7 +172,7 @@ services.pipewire = {
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  #services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
 
   environment.systemPackages = with pkgs; [
     impression
@@ -211,7 +211,7 @@ services.pipewire = {
     terraform-providers.proxmox
     terraform-providers.openwrt
     terraform-providers.docker
-    xscreensaver
+    #xscreensaver
     pavucontrol
     rpi-imager
   ];
