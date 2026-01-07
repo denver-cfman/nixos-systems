@@ -216,9 +216,13 @@ services.pipewire = {
     rpi-imager
   ];
 
-services.xscreensaver = {
-	enable = true;
-};
+#services.xscreensaver = {
+#	enable = true;
+#};
+
+nixpkgs.config.permittedInsecurePackages = [
+    "qtwebengine-5.15.19"
+];
 
   boot.binfmt.emulatedSystems = [ 
     "aarch64-linux"
