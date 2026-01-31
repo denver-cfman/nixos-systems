@@ -177,6 +177,7 @@ services.pipewire = {
 
 
   environment.systemPackages = with pkgs; [
+    tailscale
     impression
     k9s
     #ollama
