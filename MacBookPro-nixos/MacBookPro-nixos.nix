@@ -255,6 +255,8 @@ nixpkgs.config.permittedInsecurePackages = [
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+	services.tailscale.enable = true;
+
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
