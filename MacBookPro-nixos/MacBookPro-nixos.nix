@@ -208,7 +208,7 @@ services.pipewire = {
     podman
     podman-desktop
     podman-compose
-    python310
+    #python310
     screen
     terraform
     #xscreensaver
