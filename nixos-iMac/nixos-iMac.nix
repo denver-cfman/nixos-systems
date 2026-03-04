@@ -168,8 +168,12 @@
     podman
     podman-desktop
     podman-compose
-    python310
+    python315
     screen
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+      "qtwebengine-5.15.19"
   ];
 
   boot.binfmt.emulatedSystems = [ 
