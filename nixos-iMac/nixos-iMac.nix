@@ -168,7 +168,7 @@
     podman
     podman-desktop
     podman-compose
-    python310
+    python315
     screen
   ];
 
