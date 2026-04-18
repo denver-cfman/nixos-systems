@@ -182,7 +182,7 @@ services.pipewire = {
     k9s
     #ollama
     mission-center
-    xorg.setxkbmap
+    setxkbmap
     #virtualbox
     slack
     bluebubbles
