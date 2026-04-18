@@ -14,6 +14,6 @@ nix flake show --all-systems --json --refresh github:denver-cfman/nixos-systems?
 
 | System | Notes |
 |---|---|
-| [ha-console1](./ha-console1/README.md) | Test NAS System |
-| [nixos-iMac](./nixos-iMac/README.md) | Test iMac Build System |
+| [ha-console1](./ha-console1/README.md) | Home Assistant Wall Console 1 |
+| [nixos-iMac](./nixos-iMac/README.md) | iMac nix Build System |
 | [MacBookPro-nixos](./MacBookPro-nixos/README.md) | Old MacBookPro |
