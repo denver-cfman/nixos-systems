@@ -127,7 +127,7 @@ services.pipewire = {
 	     _1password-gui
 	     _1password-cli
 	     prusa-slicer
-	     neofetch 
+	     fastfetch 
 	     f3
 	     oh-my-zsh
 	     chromium
