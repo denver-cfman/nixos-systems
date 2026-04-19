@@ -134,7 +134,7 @@ services.pipewire = {
 	     wireshark
 	     meld
 	     gparted
-	     obs-studio
+	     #obs-studio
 	     termius
 	     hfsprogs  
      ];
@@ -198,7 +198,7 @@ services.pipewire = {
 	usbtop
     iftop
     #nvtopPackages.apple
-    nvtopPackages.full
+    #nvtopPackages.full
     curl
     git
     oh-my-zsh
