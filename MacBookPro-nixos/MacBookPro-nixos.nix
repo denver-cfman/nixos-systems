@@ -62,7 +62,7 @@
   };
 
 	services.xserver.displayManager.sessionCommands = ''
-	${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
+	${lib.getBin pkgs.xrandr}/bin/xrandr --setprovideroutputsource 2 0
 	'';
 
   # Enable CUPS to print documents.
@@ -127,14 +127,14 @@ services.pipewire = {
 	     _1password-gui
 	     _1password-cli
 	     prusa-slicer
-	     neofetch 
+	     fastfetch 
 	     f3
 	     oh-my-zsh
 	     chromium
 	     wireshark
 	     meld
 	     gparted
-	     obs-studio
+	     #obs-studio
 	     termius
 	     hfsprogs  
      ];
@@ -182,7 +182,7 @@ services.pipewire = {
     k9s
     #ollama
     mission-center
-    xorg.setxkbmap
+    setxkbmap
     #virtualbox
     slack
     bluebubbles
@@ -198,7 +198,7 @@ services.pipewire = {
 	usbtop
     iftop
     #nvtopPackages.apple
-    nvtopPackages.full
+    #nvtopPackages.full
     curl
     git
     oh-my-zsh

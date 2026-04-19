@@ -100,7 +100,7 @@
     description = "giezac";
     extraGroups = [ "wireshark" "networkmanager" "wheel" ];
     packages = with pkgs; [
-      neofetch 
+      fastfetch 
       f3
       woeusb-ng
       ntfs3g
