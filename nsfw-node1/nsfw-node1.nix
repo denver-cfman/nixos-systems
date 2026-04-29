@@ -68,13 +68,14 @@
   environment.systemPackages = with pkgs; [
     libraspberrypi
     raspberrypi-eeprom
-    fastfetch
+    pfetch
     vim
     git
     wget
     btop
   ];
 
+  #disabledModules = [ "services/x11/desktop-managers/none.nix" ];
 
   services.openssh.enable = true;
 
