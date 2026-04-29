@@ -37,6 +37,13 @@
       };
     in rec {
       nixosConfigurations = {
+         nsfw-node1 = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
+            ./nsfw-node1/nsfw-node1.nix
+          ];
+        };
          remote-nas1 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
@@ -89,6 +96,12 @@
         # This defaults to 30 seconds.
         confirmTimeout = 90;
         nodes = {
+          nsfw-node1 = {
+            hostname = "nsfw-node1";
+            profiles.system.path =
+              deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.nsfw-node1;
+            #remoteBuild = true;
+          };
           remote-nas1 = {
             hostname = "remote-nas1";
             profiles.system.path =
