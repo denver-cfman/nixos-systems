@@ -24,7 +24,7 @@ K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/
 
 #### nix-tree view
 ```
-nix run nixpkgs#nix-tree -- github:denver-cfman/nixos-systems#nixosConfigurations."nsfw-node1".config.system.build.toplevel --derivation
+nix run nixpkgs#nix-tree -- github:denver-cfman/nixos-systems#nixosConfigurations."nsfw-node1".config.system.build.toplevel --derivation --impure
 ```
 
 #### Test Compile of a single package
