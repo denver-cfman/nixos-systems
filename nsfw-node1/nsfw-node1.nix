@@ -66,6 +66,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
+    libraspberrypi
+    raspberrypi-eeprom
     fastfetch
     vim
     git
