@@ -22,6 +22,11 @@ sudo nixos-rebuild switch --refresh --flake github:denver-cfman/nixos-systems?re
 K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/nixos-systems?ref=main#nsfw-node1 -- -s -d --ssh-user giezac --hostname 10.0.81.99
 ```
 
+#### nix-tree view
+```
+nix run nixpkgs#nix-tree -- github:denver-cfman/nixos-systems?ref=main#nixosConfigurations."nsfw-node1".config.system.build.toplevel --derivation
+```
+
 #### Test Compile of a single package
 ```
 nix build github:NixOS/nixpkgs/e4f449ab51a283676d3b520c3dbaa3eafa5025b4#pkgsCross.aarch64-multiplatform.screen
