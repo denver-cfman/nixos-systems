@@ -41,6 +41,7 @@
           inherit specialArgs;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
+            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
             ./nsfw-node1/nsfw-node1.nix
           ];
         };
