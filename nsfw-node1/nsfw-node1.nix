@@ -12,7 +12,7 @@
     ];
 
   sdImage = {
-    compressImage = false;
+    #compressImage = false;
     imageName = "nsfw-node1.img";
 
     extraFirmwareConfig = {
