@@ -29,8 +29,37 @@
   };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.efi.canTouchEfiVariables = true;
+
+  boot = {
+    loader = {
+      grub.enable = false;
+      generic-extlinux-compatible.enable = true;
+      timeout = 2;
+    };
+
+    # https://artemis.sh/2023/06/06/cross-compile-nixos-for-great-good.html
+    # for deploy-rs
+    # binfmt.emulatedSystems = [ "x86_64-linux" ];
+
+    # Avoids warning: mdadm: Neither MAILADDR nor PROGRAM has been set.
+    # This will cause the `mdmon` service to crash.
+    # See: https://github.com/NixOS/nixpkgs/issues/254807
+    swraid.enable = lib.mkForce false;
+  };
+
+  # this is handled by nixos-hardware on Pi 4
+  boot = {
+    kernelParams = [
+      "console=ttyS1,115200n8"
+    ];
+    initrd.availableKernelModules = [
+      "usbhid"
+      "usb_storage"
+    ];
+  };
+
 
   networking.hostName = "nsfw-node1";
 
