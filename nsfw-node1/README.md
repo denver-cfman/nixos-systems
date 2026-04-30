@@ -21,6 +21,11 @@ sudo nixos-rebuild switch --refresh --flake github:denver-cfman/nixos-systems?re
 ```
 K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/nixos-systems?ref=main#nsfw-node1 -- -s -d --ssh-user giezac --hostname 10.0.81.99
 ```
+#### Build sd-image (for flashing on RPi)
+```
+sudo nix build --impure --refresh --rebuild --no-update-lock-file -L -v github:denver-cfman/nixos-systems?ref=nsfw-node1-1#nixosConfigurations.nsfw-node1.config.system.
+build.sdImage
+```
 
 #### nix-tree view
 ```
