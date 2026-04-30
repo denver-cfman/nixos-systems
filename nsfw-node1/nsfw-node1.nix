@@ -2,13 +2,26 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, modulesPath, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./sd-image.nix
     ];
+
+  sdImage = {
+    #compressImage = false;
+    imageName = "nsfw-node1.img";
+
+    extraFirmwareConfig = {
+      start_x = 0;
+      #gpu_mem = 16;
+      #hdmi_group = 2;
+      #hdmi_mode = 8;
+    };
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
