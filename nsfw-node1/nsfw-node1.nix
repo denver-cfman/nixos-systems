@@ -11,6 +11,18 @@
       ./sd-image.nix
     ];
 
+  sdImage = {
+    compressImage = false;
+    imageName = "nsfw-node1.img";
+
+    extraFirmwareConfig = {
+      start_x = 0;
+      gpu_mem = 16;
+      hdmi_group = 2;
+      hdmi_mode = 8;
+    };
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
