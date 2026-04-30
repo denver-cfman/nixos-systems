@@ -17,9 +17,9 @@
 
     extraFirmwareConfig = {
       start_x = 0;
-      gpu_mem = 16;
-      hdmi_group = 2;
-      hdmi_mode = 8;
+      #gpu_mem = 16;
+      #hdmi_group = 2;
+      #hdmi_mode = 8;
     };
   };
 
