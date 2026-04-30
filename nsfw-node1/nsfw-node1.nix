@@ -13,7 +13,7 @@
 
   image = {
     #compressImage = false;
-    imageName = "nsfw-node1.img";
+    fileName = "nsfw-node1.img";
   };
 
   sdImage = {
