@@ -11,9 +11,14 @@
       ./sd-image.nix
     ];
 
-  sdImage = {
+  image = {
     #compressImage = false;
     imageName = "nsfw-node1.img";
+  };
+
+  sdImage = {
+    #compressImage = false;
+    #imageName = "nsfw-node1.img";
 
     extraFirmwareConfig = {
       start_x = 0;
