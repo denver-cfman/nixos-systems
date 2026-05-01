@@ -93,7 +93,7 @@
     home = "/home/giezac";
     description = "Me";
     password = "changeme";
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = ["wheel" "networkmanager" "docker"];
     openssh = {
       authorizedKeys.keys = [
         "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCZawwmpdesq0ZvtXTdPekpjK3OYiPONrKO0no625FqYG8A8fZY++cxjG4my6HgmoaBrZiWvRJTa0WfTfw9Tzx9xt/FKrCB4bk9G33WP+RJNF7AEo3wkGGBLHzxp9bnhzzxdJOQCV67DRDxQNjMiR5S/bkSU+QYPDq+MLLx8mFz8lfzOSThVgDLjOj7lsRAJcrFDawsjZYHjsVBdDfCkjXGPKT7/c90k0BOvOjnOZ4vEn1w2s/Neq0rDTJYDUSmu9SzW/+WkM1rZa4GS5QGFMJVrI1Ow3X8tiUYpAp1oa0MyIpRkpuP39W+I6qaRBW4/+lyJYWsLP09hU7K2wT6OGap cool"
@@ -112,6 +112,10 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+      #"qtwebengine-5.15.19"
+  ];
+
   environment.systemPackages = with pkgs; [
     libraspberrypi
     raspberrypi-eeprom
@@ -122,7 +126,53 @@
     btop
   ];
 
+  virtualisation = {
+    docker = {
+      enable = true;
+      enableOnBoot = true;
+      extraOptions = "";
+      logDriver = "journald";
+      autoPrune = {
+        enable = true;
+        flags = [ "--all" ];
+      };
+      #data-root = "/some-place/to-store-the-docker-data";
+      ### https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file
+      daemon = {
+        settings = {
+          log-driver = "json-file";
+          log-format = "text";
+          userland-proxy = false;
+          experimental = true;
+        };
+      };
+    };
+
+   oci-containers = {
+    backend = "docker";
+      containers = {
+        #foo = {
+        #  # ...
+        #};
+      };
+   };
+    #virtualbox = {
+    #  host = {
+    #    enable = true;
+    #    enableExtensionPack = true;
+    #    addNetworkInterface = true;
+    #    enableWebService = true;
+    #    #package = "";
+    #  };
+    #};
+  };
+
   #disabledModules = [ "services/x11/desktop-managers/none.nix" ];
+
+  nix.gc = {
+    automatic = true;
+    randomizedDelaySec = "5min";
+  };
 
   services.openssh.enable = true;
 
