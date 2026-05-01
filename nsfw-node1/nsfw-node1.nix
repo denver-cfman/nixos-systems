@@ -143,7 +143,10 @@
       #data-root = "/some-place/to-store-the-docker-data";
       ### https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file
       daemon = {
-        settings = {"log-driver": "json-file", "log-format": "text"};
+        settings = {
+          log-driver: "json-file";
+          log-format: "text";
+        };
       };
     };
 
