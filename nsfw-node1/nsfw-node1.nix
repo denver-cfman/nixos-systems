@@ -144,8 +144,8 @@
       ### https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file
       daemon = {
         settings = {
-          log-driver: "json-file";
-          log-format: "text";
+          log-driver = "json-file";
+          log-format = "text";
         };
       };
     };
