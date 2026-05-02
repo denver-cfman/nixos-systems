@@ -184,6 +184,8 @@
     };
     podman = {
       enable = true;
+      dockerCompat = true;
+      dockerComposeCompat = true;
       dockerSocket = {
         enable = true;
       };
