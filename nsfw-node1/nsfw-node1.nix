@@ -75,7 +75,7 @@
      enable = true;
      unmanaged = [ "type:wifi" ];
     };
-    wireless.enable = false;
+    wireless.enable = lib.mkForce false;
     vlans = {
       vlan90 = {
         id = 90;
