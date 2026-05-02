@@ -150,6 +150,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    ### https://docs.hercules-ci.com/arion/
+    arion
+    docker-client
     libraspberrypi
     raspberrypi-eeprom
     pfetch
@@ -177,29 +180,17 @@
 
   virtualisation = {
     docker = {
-      enable = true;
-      enableOnBoot = true;
-      extraOptions = "";
-      logDriver = "journald";
-      autoPrune = {
-        enable = true;
-        dates = "weekly";
-        flags = [ "--all" ];
-      };
-      #data-root = "/some-place/to-store-the-docker-data";
-      ### https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file
-      daemon = {
-        settings = {
-          log-driver = "json-file";
-          log-format = "text";
-          userland-proxy = false;
-          experimental = true;
-        };
-      };
+      enable = false;
     };
-
+    podman = {
+      enable = true;
+      dockerSocket = {
+        enable = true;
+      };
+      defaultNetwork.dnsname.enable = true;
+    };
    oci-containers = {
-    backend = "docker";
+    backend = "podman";
       containers = {
         #foo = {
         #  # ...
