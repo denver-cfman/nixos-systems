@@ -33,6 +33,7 @@
   #boot.loader.efi.canTouchEfiVariables = true;
 
   boot = {
+    supportedFilesystems = [ "nfs" ];
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
@@ -71,7 +72,11 @@
   networking = {
     hostName = "nsfw-node1";
     interfaces.end0.useDHCP = true;
-    networkmanager.enable = true;
+    networkmanager = {
+     enable = true;
+     unmanaged = [ "type:wifi" ];
+    };
+    wireless.enable = lib.mkForce false;
     vlans = {
       vlan90 = {
         id = 90;
@@ -153,6 +158,22 @@
     wget
     btop
   ];
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      wpa_supplicant = prev.runCommand "empty-wpa-supplicant" {} "mkdir -p $out";
+    })
+  ];
+
+  # Removes basic packages like nano, rsync, and strace
+  environment.defaultPackages = [];
+
+  # Disables documentation (man pages, info files) to save space
+  documentation.enable = false;
+  documentation.nixos.enable = false;
+  
+  # Specifically for wpa_supplicant/wireless firmware
+  hardware.enableRedistributableFirmware = lib.mkForce false;
 
   virtualisation = {
     docker = {
