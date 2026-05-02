@@ -185,8 +185,12 @@
     podman = {
       enable = true;
       dockerCompat = true;
-      dockerComposeCompat = true;
       dockerSocket = {
+        enable = true;
+      };
+      autoPrune = {
+        dates = "weekly";
+        flags = [ "--all" ];
         enable = true;
       };
     };
