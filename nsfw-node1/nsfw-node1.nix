@@ -68,15 +68,18 @@
     options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
   };
 
-
-  networking.hostName = "nsfw-node1";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nsfw-node1";
+    interfaces.end0.useDHCP = true;
+    networkmanager.enable = true;
+    vlans = {
+      vlan90 = {
+        id = 90;
+        interface = "end0";
+      };
+    };
+    interfaces.vlan90.useDHCP = true;
+  };
 
   # Set your time zone.
   time.timeZone = "America/Denver";
