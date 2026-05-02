@@ -93,7 +93,7 @@
       ${pkgs.docker}/bin/docker network create -d macvlan \
         --subnet=10.0.90.0/28 \
         --gateway=10.0.90.1 \
-        -o parent=vlan10 NSFW
+        -o parent=vlan90 NSFW
     '';
     serviceConfig.Type = "oneshot";
   };
