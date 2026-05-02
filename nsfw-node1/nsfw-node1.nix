@@ -91,7 +91,7 @@
   systemd.services.init-docker-network = {
     description = "Create Docker Macvlan Network vlan90";
     after = [ "network-online.target" "docker.service" ];
-    requires = [ "docker.service" ];
+    requires = [ "docker.service" "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
     script = ''
       ${pkgs.docker}/bin/docker network inspect NSFW >/dev/null 2>&1 || \
@@ -126,7 +126,7 @@
     home = "/home/giezac";
     description = "Me";
     password = "changeme";
-    extraGroups = ["wheel" "networkmanager" "docker"];
+    extraGroups = ["wheel" "networkmanager" "podman"];
     openssh = {
       authorizedKeys.keys = [
         "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCZawwmpdesq0ZvtXTdPekpjK3OYiPONrKO0no625FqYG8A8fZY++cxjG4my6HgmoaBrZiWvRJTa0WfTfw9Tzx9xt/FKrCB4bk9G33WP+RJNF7AEo3wkGGBLHzxp9bnhzzxdJOQCV67DRDxQNjMiR5S/bkSU+QYPDq+MLLx8mFz8lfzOSThVgDLjOj7lsRAJcrFDawsjZYHjsVBdDfCkjXGPKT7/c90k0BOvOjnOZ4vEn1w2s/Neq0rDTJYDUSmu9SzW/+WkM1rZa4GS5QGFMJVrI1Ow3X8tiUYpAp1oa0MyIpRkpuP39W+I6qaRBW4/+lyJYWsLP09hU7K2wT6OGap cool"
@@ -150,6 +150,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    ### https://docs.hercules-ci.com/arion/
+    arion
+    docker-client
     libraspberrypi
     raspberrypi-eeprom
     pfetch
@@ -177,29 +180,22 @@
 
   virtualisation = {
     docker = {
+      enable = false;
+    };
+    podman = {
       enable = true;
-      enableOnBoot = true;
-      extraOptions = "";
-      logDriver = "journald";
-      autoPrune = {
+      dockerCompat = true;
+      dockerSocket = {
         enable = true;
+      };
+      autoPrune = {
         dates = "weekly";
         flags = [ "--all" ];
-      };
-      #data-root = "/some-place/to-store-the-docker-data";
-      ### https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file
-      daemon = {
-        settings = {
-          log-driver = "json-file";
-          log-format = "text";
-          userland-proxy = false;
-          experimental = true;
-        };
+        enable = true;
       };
     };
-
    oci-containers = {
-    backend = "docker";
+    backend = "podman";
       containers = {
         #foo = {
         #  # ...

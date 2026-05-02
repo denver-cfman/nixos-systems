@@ -14,6 +14,8 @@
       # Ensure home-manager uses the same nixpkgs as your system for consistency.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    arion.url = "github:hercules-ci/arion";
+    arion.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
