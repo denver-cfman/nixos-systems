@@ -187,7 +187,6 @@
       dockerSocket = {
         enable = true;
       };
-      defaultNetwork.dnsname.enable = true;
     };
    oci-containers = {
     backend = "podman";
