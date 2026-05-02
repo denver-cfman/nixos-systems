@@ -91,7 +91,7 @@
   systemd.services.init-docker-network = {
     description = "Create Docker Macvlan Network vlan90";
     after = [ "network-online.target" "docker.service" ];
-    requires = [ "docker.service" ];
+    requires = [ "docker.service" "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
     script = ''
       ${pkgs.docker}/bin/docker network inspect NSFW >/dev/null 2>&1 || \
