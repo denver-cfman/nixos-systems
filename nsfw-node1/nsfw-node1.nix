@@ -162,6 +162,7 @@
       logDriver = "journald";
       autoPrune = {
         enable = true;
+        dates = "weekly";
         flags = [ "--all" ];
       };
       #data-root = "/some-place/to-store-the-docker-data";
