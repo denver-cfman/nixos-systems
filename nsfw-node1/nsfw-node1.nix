@@ -81,6 +81,23 @@
     interfaces.vlan90.useDHCP = true;
   };
 
+
+  #### Create the Macvlan network via systemd (since OCI-containers won't create it)
+  systemd.services.init-docker-network = {
+    description = "Create Docker Macvlan Network vlan90";
+    after = [ "network-online.target" "docker.service" ];
+    requires = [ "docker.service" ];
+    wantedBy = [ "multi-user.target" ];
+    script = ''
+      ${pkgs.docker}/bin/docker network inspect NSFW >/dev/null 2>&1 || \
+      ${pkgs.docker}/bin/docker network create -d macvlan \
+        --subnet=10.0.90.0/28 \
+        --gateway=10.0.90.1 \
+        -o parent=vlan10 NSFW
+    '';
+    serviceConfig.Type = "oneshot";
+  };
+
   # Set your time zone.
   time.timeZone = "America/Denver";
 
