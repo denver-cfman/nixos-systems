@@ -172,7 +172,7 @@
   documentation.nixos.enable = false;
   
   # Specifically for wpa_supplicant/wireless firmware
-  hardware.enableRedistributableFirmware = false;
+  hardware.enableRedistributableFirmware = lib.mkForce false;
 
   virtualisation = {
     docker = {
