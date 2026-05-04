@@ -15,7 +15,7 @@ nix flake show --all-systems --json --refresh github:denver-cfman/nixos-systems?
 ### remote update nix (nixos-rebuild) on cluster head
 #### nixos-rebuild
 ```
-sudo nixos-rebuild switch --refresh --flake github:denver-cfman/nixos-systems?ref=main#nsfw-node1
+sudo nixos-rebuild switch --refresh --flake github:denver-cfman/nixos-systems?ref=main#nsfw-node1 --no-write-lock-file
 ```
 #### deploy-rs
 ```
