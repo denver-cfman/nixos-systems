@@ -13,6 +13,9 @@ in
     
     projects.arion-container-stack = {
       settings = {
+        out.dockerCompose.service = {
+            shm_size = "512m";
+        };
         services = {
           nsfw-browser = {
             service = {
@@ -20,9 +23,6 @@ in
               ports = [ "6901:6901" ];
               environment = {
                 VNC_PW = finalVncPw;
-              };
-              out.dockerCompose.service = {
-                  shm_size = "512m";
               };
             };
           };
