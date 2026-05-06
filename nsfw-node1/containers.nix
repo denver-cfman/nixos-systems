@@ -5,6 +5,9 @@
     backend = "podman-socket";
     
     projects.my-stack = {
+      settings = inputs.arion.lib.build {
+        dockerComposeYaml = inputs.browser-stack-yaml;
+      };
       #settings = {
       #  services = {
       #    web-server = {
