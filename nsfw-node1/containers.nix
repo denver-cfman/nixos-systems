@@ -1,0 +1,18 @@
+{ config, pkgs, ... }:
+
+{
+  virtualisation.arion = {
+    backend = "podman-socket";
+    
+    projects.my-stack = {
+      settings = {
+        services = {
+          web-server = {
+            service.image = "mendhak/http-https-echo:latest";
+            service.ports = [ "8080:8080" "8443:8443" ];
+          };
+        };
+      };
+    };
+  };
+}
