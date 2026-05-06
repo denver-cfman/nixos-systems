@@ -36,7 +36,7 @@
         })
       ];
       specialArgs = {
-        inherit inputs nixos-hardware home-manager;
+        inherit inputs nixos-hardware home-manager arion;
       };
     in rec {
       nixosConfigurations = {
