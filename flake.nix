@@ -45,6 +45,7 @@
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
             "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+            arion.nixosModules.arion
             ./nsfw-node1/nsfw-node1.nix
           ];
         };
