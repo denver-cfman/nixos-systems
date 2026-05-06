@@ -13,9 +13,6 @@ in
     
     projects.arion-container-stack = {
       settings = {
-        out.dockerCompose.services.nsfw-browser = {
-          shm_size = "512m";
-        };
         services = {
           nsfw-browser = {
             service = {
