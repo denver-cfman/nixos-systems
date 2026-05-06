@@ -15,12 +15,14 @@ in
       settings = {
         services = {
           nsfw-browser = {
-            service.image = "kasmweb/tor-browser:" + finalTorbImageTag;
-            service.ports = [ "6901:6901" ];
-            environment = {
-              VNC_PW = finalVncPw;
+            service = {
+              image = "kasmweb/tor-browser:" + finalTorbImageTag;
+              ports = [ "6901:6901" ];
+              environment = {
+                VNC_PW = finalVncPw;
+              };
+              shm_size = "512m";
             };
-            shm_size = "512m";
           };
         };
       };
