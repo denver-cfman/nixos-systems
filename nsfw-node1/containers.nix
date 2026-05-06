@@ -16,7 +16,6 @@ in
         services = {
           nsfw-browser = {
             service = {
-              shmSize = "512m";
               image = "kasmweb/tor-browser:" + finalTorbImageTag;
               ports = [ "6901:6901" ];
               environment = {
