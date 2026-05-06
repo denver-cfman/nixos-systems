@@ -41,20 +41,14 @@
       "cgroup_memory=1"
       "cgroup_enable=memory"
     ];
-    supportedFilesystems = [ "nfs" ];
+
+    #supportedFilesystems = [ "nfs" ];
+
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
       timeout = 2;
     };
-
-    # https://artemis.sh/2023/06/06/cross-compile-nixos-for-great-good.html
-    # for deploy-rs
-    # binfmt.emulatedSystems = [ "x86_64-linux" ];
-
-    # Avoids warning: mdadm: Neither MAILADDR nor PROGRAM has been set.
-    # This will cause the `mdmon` service to crash.
-    # See: https://github.com/NixOS/nixpkgs/issues/254807
     swraid.enable = lib.mkForce false;
   };
 
@@ -67,12 +61,12 @@
   };
 
   ### NFS Stuff
-  services.rpcbind.enable = true;
-  fileSystems."/mnt/nsfw-storage" = {
-    device = "192.168.1.250:/mnt/Big10TBPool/HomeLab/nsfw-storage/transmission-temp";
-    fsType = "nfs";
-    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
-  };
+  #services.rpcbind.enable = true;
+  #fileSystems."/mnt/nsfw-storage" = {
+  #  device = "192.168.1.250:/mnt/Big10TBPool/HomeLab/nsfw-storage/transmission-temp";
+  #  fsType = "nfs";
+  #  options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
+  #};
 
   networking = {
     hostName = "nsfw-node1";
