@@ -1,6 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 {
+  supportedFilesystems = [ "nfs" ];
   ### NFS Stuff
   #services.rpcbind.enable = true;
   #fileSystems."/mnt/nsfw-storage" = {
