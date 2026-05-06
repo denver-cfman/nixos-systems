@@ -34,6 +34,7 @@
   #boot.loader.efi.canTouchEfiVariables = true;
 
   boot = {
+    zfs.forceImportRoot = lib.mkForce false;
     kernelParams = [
       "console=ttyS1,115200n8"
       "cgroup_enable=cpuset"
