@@ -6,8 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      #./containers.nix
+    [
+      ./containers.nix
       ./hardware-configuration.nix
       ./sd-image.nix
     ];
