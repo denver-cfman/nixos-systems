@@ -9,7 +9,7 @@
     [
       ./containers.nix
       ./hardware-configuration.nix
-      ./nfs-mounts.nix
+      #./nfs-mounts.nix
       ./sd-image.nix
     ];
 
