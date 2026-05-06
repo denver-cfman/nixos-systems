@@ -1,18 +1,11 @@
 { config, pkgs, inputs, ... }:
 
 {
-  virtualisation.arion = {
-    backend = "podman-socket";
-    
-    projects.my-stack = {
-      settings = {
-        services = {
-          web-server = {
-            service.image = "mendhak/http-https-echo:latest";
-            service.ports = [ "8080:8080" "8443:8443" ];
-          };
-        };
-      };
-    };
-  };
+  ### NFS Stuff
+  #services.rpcbind.enable = true;
+  #fileSystems."/mnt/nsfw-storage" = {
+  #  device = "192.168.1.250:/mnt/Big10TBPool/HomeLab/nsfw-storage/transmission-temp";
+  #  fsType = "nfs";
+  #  options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
+  #};
 }
