@@ -15,6 +15,9 @@ in
       settings = {
         services = {
           nsfw-browser = {
+            raw = {
+              shm_size = "512m";
+            };
             service = {
               shmSize = "512m";
               image = "kasmweb/tor-browser:" + finalTorbImageTag;
