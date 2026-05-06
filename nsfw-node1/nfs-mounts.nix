@@ -2,7 +2,7 @@
 
 {
   boot.supportedFilesystems = lib.mkAfter [ "nfs" ];
-  services.rpcbind.enable = true;
+  services.rpcbind.enable = lib.mkForce true;
   ### NFS Stuff
   #services.rpcbind.enable = true;
   #fileSystems."/mnt/nsfw-storage" = {
