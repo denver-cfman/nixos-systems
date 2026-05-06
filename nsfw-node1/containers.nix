@@ -11,10 +11,10 @@ in
   virtualisation.arion = {
     backend = "podman-socket";
     
-    projects.my-stack = {
+    projects.arion-container-stack = {
       settings = {
         services = {
-          web-server = {
+          nsfw-browser = {
             service.image = "kasmweb/tor-browser:" + finalTorbImageTag;
             service.ports = [ "6901:6901" ];
             environment = {
