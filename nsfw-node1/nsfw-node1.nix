@@ -19,9 +19,6 @@
   };
 
   sdImage = {
-    #compressImage = false;
-    #imageName = "nsfw-node1.img";
-
     extraFirmwareConfig = {
       start_x = 0;
       #gpu_mem = 16;
@@ -29,10 +26,6 @@
       #hdmi_mode = 8;
     };
   };
-
-  # Bootloader.
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.efi.canTouchEfiVariables = true;
 
   boot = {
     zfs.forceImportRoot = lib.mkForce false;
@@ -42,8 +35,6 @@
       "cgroup_memory=1"
       "cgroup_enable=memory"
     ];
-
-    #supportedFilesystems = [ "nfs" ];
 
     loader = {
       grub.enable = false;
@@ -131,9 +122,7 @@
     wheelNeedsPassword = false;
   };
 
-  # ! Be sure to change the autologinUser.
   services.getty.autologinUser = "giezac";
-
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -163,11 +152,9 @@
   # Removes basic packages like nano, rsync, and strace
   environment.defaultPackages = [];
 
-  # Disables documentation (man pages, info files) to save space
   documentation.enable = false;
   documentation.nixos.enable = false;
   
-  # Specifically for wpa_supplicant/wireless firmware
   hardware.enableRedistributableFirmware = lib.mkForce false;
 
   virtualisation = {
@@ -194,15 +181,6 @@
         #};
       };
    };
-    #virtualbox = {
-    #  host = {
-    #    enable = true;
-    #    enableExtensionPack = true;
-    #    addNetworkInterface = true;
-    #    enableWebService = true;
-    #    #package = "";
-    #  };
-    #};
   };
 
   #disabledModules = [ "services/x11/desktop-managers/none.nix" ];
