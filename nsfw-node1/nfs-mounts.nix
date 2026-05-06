@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   boot.supportedFilesystems = lib.mkAfter [ "nfs" ];
