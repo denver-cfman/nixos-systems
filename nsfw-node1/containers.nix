@@ -13,12 +13,10 @@ in
     
     projects.arion-container-stack = {
       settings = {
-        out.dockerCompose.service = {
-            shm_size = "512m";
-        };
         services = {
           nsfw-browser = {
             service = {
+              shm_size = "512m";
               image = "kasmweb/tor-browser:" + finalTorbImageTag;
               ports = [ "6901:6901" ];
               environment = {
