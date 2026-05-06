@@ -15,7 +15,7 @@ nix flake show --all-systems --json --refresh github:denver-cfman/nixos-systems?
 ### remote update nix (nixos-rebuild) on cluster head
 #### nixos-rebuild
 ```
-sudo nixos-rebuild switch --refresh --flake github:denver-cfman/nixos-systems?ref=main#nsfw-node1 --no-write-lock-file
+sudo nixos-rebuild switch --impure --refresh --flake github:denver-cfman/nixos-systems?ref=main#nsfw-node1 --no-write-lock-file
 ```
 #### deploy-rs
 ```
@@ -30,6 +30,11 @@ build.sdImage
 #### nix-tree view
 ```
 nix run nixpkgs#nix-tree -- github:denver-cfman/nixos-systems#nixosConfigurations."nsfw-node1".config.system.build.toplevel --derivation --impure
+```
+
+#### eval compose yaml
+```
+nix eval --impure --refresh "github:denver-cfman/nixos-systems?ref=main#nixosConfigurations.nsfw-node1.config.virtualisation.arion.projects.arion-container-stack.settings.out.dockerComposeYamlAttrs" --json | jq '.'
 ```
 
 #### Test Compile of a single package

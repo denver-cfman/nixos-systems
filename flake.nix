@@ -36,7 +36,7 @@
         })
       ];
       specialArgs = {
-        inherit inputs nixos-hardware home-manager;
+        inherit inputs nixos-hardware home-manager arion;
       };
     in rec {
       nixosConfigurations = {
@@ -45,6 +45,7 @@
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
             "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+            arion.nixosModules.arion
             ./nsfw-node1/nsfw-node1.nix
           ];
         };
