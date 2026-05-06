@@ -34,7 +34,7 @@ nix run nixpkgs#nix-tree -- github:denver-cfman/nixos-systems#nixosConfiguration
 
 #### eval compose yaml
 ```
-nix eval --impure --refresh "github:denver-cfman/nixos-systems?ref=test1#nixosConfigurations.nsfw-node1.config.virtualisation.arion.projects.arion-container-stack.settings.out.dockerComposeYamlAttrs" --json | jq '.'
+nix eval --impure --refresh "github:denver-cfman/nixos-systems?ref=main#nixosConfigurations.nsfw-node1.config.virtualisation.arion.projects.arion-container-stack.settings.out.dockerComposeYamlAttrs" --json | jq '.'
 ```
 
 #### Test Compile of a single package
