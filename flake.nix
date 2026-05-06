@@ -16,6 +16,10 @@
     };
     arion.url = "github:hercules-ci/arion";
     arion.inputs.nixpkgs.follows = "nixpkgs";
+    browser-stack-yaml = {
+      url = "https://gitlab.com/denver.cfman/homelab-container-servers/-/raw/cc4adfe4656c390ef5a2ea089aeff597133a6e31/dell-server-portainer/stacks/nsfw-tor-browser-stack.yaml";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -25,7 +29,8 @@
     #colmena,
     nixos-hardware,
     home-manager,
-    arion
+    arion,
+    browser-stack-yaml
   }@inputs:
     let
       # see https://github.com/NixOS/nixpkgs/issues/154163
