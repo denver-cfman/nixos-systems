@@ -21,7 +21,9 @@ in
               environment = {
                 VNC_PW = finalVncPw;
               };
-              shm_size = "512m";
+              out.dockerCompose.service = {
+                  shm_size = "512m";
+              };
             };
           };
         };
