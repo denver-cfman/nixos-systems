@@ -33,6 +33,12 @@
   #boot.loader.efi.canTouchEfiVariables = true;
 
   boot = {
+    kernelParams = [
+      "console=ttyS1,115200n8"
+      "cgroup_enable=cpuset"
+      "cgroup_memory=1"
+      "cgroup_enable=memory"
+    ];
     supportedFilesystems = [ "nfs" ];
     loader = {
       grub.enable = false;
@@ -52,9 +58,6 @@
 
   # this is handled by nixos-hardware on Pi 4
   boot = {
-    kernelParams = [
-      "console=ttyS1,115200n8"
-    ];
     initrd.availableKernelModules = [
       "usbhid"
       "usb_storage"
