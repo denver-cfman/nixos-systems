@@ -10,14 +10,13 @@ in
 {
   virtualisation.arion = {
     backend = "podman-socket";
-    
-    projects.arion-container-stack = {
 
       docker-compose.raw.networks.nsfw-network = {
           name = "NSFW";
           external = true;
       };
 
+    projects.arion-container-stack = {
       settings = {
         services = {
           nsfw-browser = {
