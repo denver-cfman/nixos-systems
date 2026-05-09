@@ -21,8 +21,13 @@ in
               environment = {
                 VNC_PW = finalVncPw;
               };
+              networks.nsfw-network.ipv4_address = "10.0.90.10";
             };
           };
+        };
+      docker-compose.raw.networks.nsfw-network = {
+          name = "NSFW";
+          external = true;
         };
       };
     };
