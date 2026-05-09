@@ -25,7 +25,7 @@ in
                 VNC_PW = finalVncPw;
               };
               networks = [ "nsfw-network" ];
-              networks.nsfw-network.ipv4_address = "10.0.90.10";
+              #networks.nsfw-network.ipv4_address = "10.0.90.10";
             };
           };
         };
