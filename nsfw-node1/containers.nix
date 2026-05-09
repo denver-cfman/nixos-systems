@@ -17,7 +17,7 @@ in
           nsfw-browser = {
             service = {
               image = "kasmweb/tor-browser:" + finalTorbImageTag;
-              ports = [ "6901:6901" ];
+              #ports = [ "6901:6901" ];
               environment = {
                 VNC_PW = finalVncPw;
               };
