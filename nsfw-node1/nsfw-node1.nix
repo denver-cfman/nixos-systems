@@ -67,6 +67,10 @@
       };
     };
     interfaces.vlan90.useDHCP = true;
+
+  proxy.default = "http://10.0.90.3:8118/";
+  proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
   };
 
 
