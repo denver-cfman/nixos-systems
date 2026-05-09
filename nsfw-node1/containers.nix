@@ -12,6 +12,12 @@ in
     backend = "podman-socket";
     
     projects.arion-container-stack = {
+
+      docker-compose.raw.networks.nsfw-network = {
+          name = "NSFW";
+          external = true;
+      };
+
       settings = {
         services = {
           nsfw-browser = {
@@ -21,14 +27,10 @@ in
               environment = {
                 VNC_PW = finalVncPw;
               };
-              networks.NSFW.ipv4_address = "10.0.90.10";
+              networks.nsfw-network.ipv4_address = "10.0.90.10";
             };
           };
         };
-      #docker-compose.raw.networks.nsfw-network = {
-      #    name = "NSFW";
-      #    external = true;
-      #  };
       };
     };
   };
