@@ -12,27 +12,23 @@ in
     backend = "podman-socket";
     projects.arion-container-stack = {
       settings = {
-        # 1. Global Declaration (Forces the 'networks:' header in YAML)
         docker-compose.raw.networks.nsfw-network = {
             name = "NSFW";
             external = true;
         };
-
         services.nsfw-browser = {
-          # 2. Assign the service to the network
-          # This must be outside the 'service' block for some Arion versions
-          # or defined as an attribute set for better compatibility.
-          networks.nsfw-network = {};
-
+          # This 'service' block is where Docker-standard options go
           service = {
             image = "kasmweb/tor-browser:" + finalTorbImageTag;
+            
+            # 1. Define the network link HERE
+            networks = [ "nsfw-network" ];
+            
             environment = {
               VNC_PW = finalVncPw;
               HTTP_PROXY = "http://10.0.90.3:8118";
               HTTPS_PROXY = "http://10.0.90.3:8118";
             };
-            # 3. If you need a static IP, uncomment this:
-            # networks.nsfw-network.ipv4_address = "10.0.90.10";
           };
         };
       };
