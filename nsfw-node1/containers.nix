@@ -10,7 +10,12 @@ in
   virtualisation.arion = {
     # 1. Set this at the top level of the arion attribute
     backend = "podman-socket";
-
+    networks = {
+      NSFW = {
+        external = true;
+        name = "NSFW";
+      };
+    };
     projects.arion-container-stack = {
       settings = {
         # 2. Force the global network registry
