@@ -7,7 +7,6 @@ let
   finalTorbImageTag = if torbImageTag != "" then torbImageTag else "aarch64-1.17.0-rolling-daily";
 in
 {
-{
   virtualisation.arion.projects.arion-container-stack.settings = {
     # 1. FORCE GLOBAL NETWORK DEFINITION
     # This must be a direct child of 'settings'
@@ -29,5 +28,4 @@ in
       };
     };
   };
-};
 }
