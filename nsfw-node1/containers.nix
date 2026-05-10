@@ -18,14 +18,14 @@ in
     };
     projects.arion-container-stack = {
       settings = {
-        # 2. Force the global network registry
         docker-compose.raw.networks.NSFW = {
           external = true;
         };
 
         services.nsfw-browser.service = {
           image = "kasmweb/tor-browser:" + finalTorbImageTag;
-          networks = [ "NSFW" ];
+          #networks = [ "NSFW" ];
+          ports = [ "6901:6901" ]
           environment = {
             VNC_PW = finalVncPw;
             HTTP_PROXY = "http://10.0.90.3:8118";
