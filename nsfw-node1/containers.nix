@@ -11,12 +11,6 @@ in
     # 1. Set this at the top level of the arion attribute
     backend = "podman-socket";
     projects.arion-container-stack = {
-      networks = {
-        NSFW = {
-          external = true;
-          name = "NSFW";
-        };
-      };
       settings = {
         docker-compose.raw.networks.NSFW = {
           external = true;
