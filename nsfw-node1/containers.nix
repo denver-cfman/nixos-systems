@@ -3,7 +3,6 @@
 let
   vncPassword = builtins.getEnv "VNC_PW";
   finalVncPw = if vncPassword != "" then vncPassword else "password";
-
   torbImageTag = builtins.getEnv "TORB_IMAGE_TAG";
   finalTorbImageTag = if torbImageTag != "" then torbImageTag else "aarch64-1.17.0-rolling-daily";
 in
@@ -12,15 +11,19 @@ in
     backend = "podman-socket";
     projects.arion-container-stack.settings = {
       
-      # 1. Match the key exactly to the 'NAME' in your docker network list
-      docker-compose.raw.networks.NSFW = {
-        external = true;
+      # 1. THE GLOBAL DECLARATION
+      # This MUST be here to create the top-level 'networks' section.
+      docker-compose.raw.networks = {
+        NSFW = {
+          external = true;
+        };
       };
 
+      # 2. THE SERVICE DEFINITION
       services.nsfw-browser.service = {
         image = "kasmweb/tor-browser:" + finalTorbImageTag;
         
-        # 2. Reference the exact name here as well
+        # Reference the network by the key used above
         networks = [ "NSFW" ];
         
         environment = {
