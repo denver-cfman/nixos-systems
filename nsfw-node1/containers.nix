@@ -24,6 +24,7 @@ in
             VNC_PW = finalVncPw;
             HTTP_PROXY = "http://10.0.90.3:8118";
             HTTPS_PROXY = "http://10.0.90.3:8118";
+            LAUNCH_URL = "https://thepiratebay.org/";
           };
         };
       };
