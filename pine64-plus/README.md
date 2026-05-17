@@ -1,4 +1,4 @@
-# pine64-plus
+# [pine64-plus](https://nixos.wiki/wiki/NixOS_on_ARM/PINE64_Pinebook)
 ---
 
 ---
