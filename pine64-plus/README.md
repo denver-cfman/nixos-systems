@@ -1,4 +1,4 @@
-# nsfw-node1
+# pine64-plus
 ---
 
 ---
@@ -15,26 +15,26 @@ nix flake show --all-systems --json --refresh github:denver-cfman/nixos-systems?
 ### remote update nix (nixos-rebuild) on cluster head
 #### nixos-rebuild
 ```
-sudo nixos-rebuild switch --impure --refresh --flake github:denver-cfman/nixos-systems?ref=main#nsfw-node1 --no-write-lock-file
+sudo nixos-rebuild switch --impure --refresh --flake github:denver-cfman/nixos-systems?ref=main#pine64-plus --no-write-lock-file
 ```
 #### deploy-rs
 ```
-K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/nixos-systems?ref=main#nsfw-node1 -- -s -d --ssh-user giezac --hostname 10.0.81.99
+K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/nixos-systems?ref=main#pine64-plus -- -s -d --ssh-user giezac --hostname 10.0.81.99
 ```
 #### Build sd-image (for flashing on RPi)
 ```
-sudo nix build --impure --refresh --rebuild --no-update-lock-file -L -v github:denver-cfman/nixos-systems?ref=nsfw-node1-1#nixosConfigurations.nsfw-node1.config.system.
+sudo nix build --impure --refresh --rebuild --no-update-lock-file -L -v github:denver-cfman/nixos-systems?ref=pine64-plus-1#nixosConfigurations.pine64-plus.config.system.
 build.sdImage
 ```
 
 #### nix-tree view
 ```
-nix run nixpkgs#nix-tree -- github:denver-cfman/nixos-systems#nixosConfigurations."nsfw-node1".config.system.build.toplevel --derivation --impure
+nix run nixpkgs#nix-tree -- github:denver-cfman/nixos-systems#nixosConfigurations."pine64-plus".config.system.build.toplevel --derivation --impure
 ```
 
 #### eval compose yaml
 ```
-nix eval --impure --refresh "github:denver-cfman/nixos-systems?ref=main#nixosConfigurations.nsfw-node1.config.virtualisation.arion.projects.arion-container-stack.settings.out.dockerComposeYamlAttrs" --json | jq '.'
+nix eval --impure --refresh "github:denver-cfman/nixos-systems?ref=main#nixosConfigurations.pine64-plus.config.virtualisation.arion.projects.arion-container-stack.settings.out.dockerComposeYamlAttrs" --json | jq '.'
 ```
 
 #### Test Compile of a single package

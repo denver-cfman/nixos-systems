@@ -15,7 +15,7 @@
 
   image = {
     #compressImage = false;
-    fileName = "nsfw-node1.img";
+    fileName = "pine64-plus.img";
   };
 
   sdImage = {
@@ -53,7 +53,7 @@
   };
 
   networking = {
-    hostName = "nsfw-node1";
+    hostName = "pine64-plus";
     interfaces.end0.useDHCP = true;
     networkmanager = {
      enable = true;
