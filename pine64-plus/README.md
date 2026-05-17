@@ -1,6 +1,6 @@
 # [pine64-plus](https://nixos.wiki/wiki/NixOS_on_ARM/PINE64_Pinebook)
 ---
-
+[Matrix](https://matrix.to/#/#pine64sopine:matrix.org)
 ---
 ### check this flake
 ```
@@ -16,10 +16,6 @@ nix flake show --all-systems --json --refresh github:denver-cfman/nixos-systems?
 #### nixos-rebuild
 ```
 sudo nixos-rebuild switch --impure --refresh --flake github:denver-cfman/nixos-systems?ref=main#pine64-plus --no-write-lock-file
-```
-#### deploy-rs
-```
-K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/nixos-systems?ref=main#pine64-plus -- -s -d --ssh-user giezac --hostname 10.0.81.99
 ```
 #### Build sd-image (for flashing on [Pine64+](https://discourse.nixos.org/t/pine64-device-images/15699))
 ```
