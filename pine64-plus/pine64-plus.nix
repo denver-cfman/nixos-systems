@@ -54,40 +54,12 @@
 
   networking = {
     hostName = "pine64-plus";
-    interfaces.end0.useDHCP = true;
+    #interfaces.end0.useDHCP = true;
     networkmanager = {
      enable = true;
      unmanaged = [ "type:wifi" ];
     };
     wireless.enable = lib.mkForce false;
-    vlans = {
-      vlan90 = {
-        id = 90;
-        interface = "end0";
-      };
-    };
-    interfaces.vlan90.useDHCP = true;
-
-  proxy.default = "http://10.0.90.3:8118/";
-  proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  };
-
-
-  #### Create the Macvlan network via systemd (since OCI-containers won't create it)
-  systemd.services.init-docker-network = {
-    description = "Create Docker Macvlan Network vlan90";
-    after = [ "network-online.target" "docker.service" ];
-    requires = [ "docker.service" "network-online.target" ];
-    wantedBy = [ "multi-user.target" ];
-    script = ''
-      ${pkgs.docker}/bin/docker network inspect NSFW >/dev/null 2>&1 || \
-      ${pkgs.docker}/bin/docker network create -d macvlan \
-        --subnet=10.0.90.0/28 \
-        --gateway=10.0.90.1 \
-        -o parent=vlan90 NSFW
-    '';
-    serviceConfig.Type = "oneshot";
   };
 
   # Set your time zone.
@@ -135,11 +107,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    ### https://docs.hercules-ci.com/arion/
-    arion
-    docker-client
-    libraspberrypi
-    raspberrypi-eeprom
     pfetch
     vim
     git
