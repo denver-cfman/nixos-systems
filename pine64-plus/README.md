@@ -21,9 +21,9 @@ sudo nixos-rebuild switch --impure --refresh --flake github:denver-cfman/nixos-s
 ```
 K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/nixos-systems?ref=main#pine64-plus -- -s -d --ssh-user giezac --hostname 10.0.81.99
 ```
-#### Build sd-image (for flashing on RPi)
+#### Build sd-image (for flashing on [Pine64+](https://discourse.nixos.org/t/pine64-device-images/15699))
 ```
-sudo nix build --impure --refresh --rebuild --no-update-lock-file -L -v github:denver-cfman/nixos-systems?ref=pine64-plus-1#nixosConfigurations.pine64-plus.config.system.
+sudo nix build --impure --refresh --rebuild --no-update-lock-file -L -v github:denver-cfman/nixos-systems?ref=main#nixosConfigurations.pine64-plus.config.system.
 build.sdImage
 ```
 
