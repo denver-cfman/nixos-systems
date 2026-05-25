@@ -40,6 +40,15 @@
       };
     in rec {
       nixosConfigurations = {
+         pine64-plus = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
+            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+            arion.nixosModules.arion
+            ./pine64-plus/pine64-plus.nix
+          ];
+        };
          nsfw-node1 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
