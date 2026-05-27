@@ -14,9 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-
-
-
+  #boot.blacklistedKernelModules = [ "b43" "bcma" "brcmsmac" "ssb" ];
 
   networking.hostName = "MacBookPro-nixos"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -119,6 +117,9 @@ services.pipewire = {
     extraGroups = [ "wireshark" "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [
          usbutils
+         pciutils
+         lshw
+         lshw-gui
 	     powershell
 	     vscode-with-extensions
 	     vscode-extensions.ms-vscode.powershell
@@ -163,7 +164,7 @@ services.pipewire = {
 };
 
 
-  boot.blacklistedKernelModules = [ "kvm_intel" ]; 
+  boot.blacklistedKernelModules = [ "b43" "bcma" "brcmsmac" "brcmfmac" "brcmfmac_wcc" "ssb" "kvm_intel" ]; 
 
 
   #users.extraGroups.vboxusers.members = [ "giezac" ];
