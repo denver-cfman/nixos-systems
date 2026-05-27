@@ -118,6 +118,7 @@ services.pipewire = {
     description = "giezac";
     extraGroups = [ "wireshark" "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [
+         usbutils
 	     powershell
 	     vscode-with-extensions
 	     vscode-extensions.ms-vscode.powershell
