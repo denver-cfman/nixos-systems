@@ -116,6 +116,10 @@ services.pipewire = {
     description = "giezac";
     extraGroups = [ "wireshark" "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [
+         usbutils
+         pciutils
+         lshw
+         lshw-gui
 	     powershell
 	     vscode-with-extensions
 	     vscode-extensions.ms-vscode.powershell
@@ -160,7 +164,7 @@ services.pipewire = {
 };
 
 
-  boot.blacklistedKernelModules = [ "kvm_intel" ]; 
+  boot.blacklistedKernelModules = [ "b43" "bcma" "brcmsmac" "brcmfmac" "brcmfmac_wcc" "ssb" "kvm_intel" ]; 
 
 
   #users.extraGroups.vboxusers.members = [ "giezac" ];
