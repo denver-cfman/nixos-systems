@@ -164,7 +164,7 @@ services.pipewire = {
 };
 
 
-  boot.blacklistedKernelModules = [ "b43" "bcma" "brcmsmac" "ssb" "kvm_intel" ]; 
+  boot.blacklistedKernelModules = [ "b43" "bcma" "brcmsmac" "brcmfmac" "brcmfmac_wcc" "ssb" "kvm_intel" ]; 
 
 
   #users.extraGroups.vboxusers.members = [ "giezac" ];
