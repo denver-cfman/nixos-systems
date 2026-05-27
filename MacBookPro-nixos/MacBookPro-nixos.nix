@@ -14,9 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-
-
-
+  boot.blacklistedKernelModules = [ "b43" "bcma" "brcmsmac" "ssb" ];
 
   networking.hostName = "MacBookPro-nixos"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
