@@ -117,6 +117,9 @@ services.pipewire = {
     extraGroups = [ "wireshark" "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [
          usbutils
+         pciutils
+         lshw
+         lshw-gui
 	     powershell
 	     vscode-with-extensions
 	     vscode-extensions.ms-vscode.powershell
