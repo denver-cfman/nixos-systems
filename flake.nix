@@ -40,6 +40,15 @@
       };
     in rec {
       nixosConfigurations = {
+         hermes-test1 = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
+            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+            arion.nixosModules.arion
+            ./hermes-test1/hermes-test1.nix
+          ];
+        };
          pine64-plus = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
