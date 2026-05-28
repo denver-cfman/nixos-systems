@@ -99,26 +99,25 @@
       "qtwebengine-5.15.19"
   ];
 
-  boot.binfmt.emulatedSystems = [ 
-    "aarch64-linux"
-    "armv6l-linux"
-    "armv7l-linux"
-    "i386-linux"
-    "i486-linux"
-    "i586-linux"
-    "i686-linux"
-    "wasm32-wasi"
-    "wasm64-wasi"
-  ];
+#  boot.binfmt.emulatedSystems = [ 
+#    "aarch64-linux"
+#    "armv6l-linux"
+#    "armv7l-linux"
+#    "i386-linux"
+#    "i486-linux"
+#    "i586-linux"
+#    "i686-linux"
+#    "wasm32-wasi"
+#    "wasm64-wasi"
+#  ];
 
   nix.gc = {
     automatic = true;
     randomizedDelaySec = "5min";
   };
 
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "25.11";
 
 }
