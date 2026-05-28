@@ -1,12 +1,14 @@
 { config, pkgs, ... }:
 
 {
+
+  isoImage.squashfsCompression = "zstd -Xcompression-level 1";
+
   imports =
     [
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
   boot.loader = {
     systemd-boot = {
             enable = true;

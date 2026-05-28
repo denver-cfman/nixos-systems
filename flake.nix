@@ -44,8 +44,7 @@
           inherit specialArgs;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
-            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-            arion.nixosModules.arion
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
             ./hermes-test1/hermes-test1.nix
           ];
         };
