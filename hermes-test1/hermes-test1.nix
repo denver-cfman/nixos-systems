@@ -14,6 +14,11 @@
             enable = true;
       configurationLimit = 15;
     };
+    grub = {
+      enable = true;
+      device = "/dev/sda";
+      useOSProber = true;
+    };
     #efi.canTouchEfiVariables = true;
   };
 
