@@ -14,12 +14,13 @@
     #        enable = true;
     #  configurationLimit = 15;
     #};
+    #efi.canTouchEfiVariables = true;
+    
     grub = {
       enable = true;
       device = "/dev/sda";
       useOSProber = true;
     };
-    #efi.canTouchEfiVariables = true;
   };
 
   networking = {
