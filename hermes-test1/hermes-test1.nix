@@ -14,7 +14,7 @@
             enable = true;
       configurationLimit = 15;
     };
-    efi.canTouchEfiVariables = true;
+    #efi.canTouchEfiVariables = true;
   };
 
   networking = {
