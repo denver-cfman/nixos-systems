@@ -20,6 +20,8 @@
       enable = true;
       device = "/dev/sda";
       useOSProber = true;
+      efiSupport = true;
+      efiInstallAsRemovable = true;
     };
   };
 
