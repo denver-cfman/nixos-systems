@@ -10,10 +10,10 @@
     ];
 
   boot.loader = {
-    systemd-boot = {
-            enable = true;
-      configurationLimit = 15;
-    };
+    #systemd-boot = {
+    #        enable = true;
+    #  configurationLimit = 15;
+    #};
     grub = {
       enable = true;
       device = "/dev/sda";
