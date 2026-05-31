@@ -12,6 +12,11 @@ nix flake check -v -L --no-build --no-write-lock-file --all-systems github:denve
 nix flake show --all-systems --json github:denver-cfman/nixos-systems?ref=main | jq '.'
 ```
 
+### remote install via nixos-anywhere
+```bash
+nix run github:nix-community/nixos-anywhere -- --flake 'github:denver-cfman/nixos-systems?ref=tinker#hermes-test1' --target-host nixos@10.0.85.186
+```
+
 ### remote update nix (nixos-rebuild) on cluster head
 #### nixos-rebuild
 ```
