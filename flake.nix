@@ -9,6 +9,10 @@
     deploy-rs.url = "github:serokell/deploy-rs";
     #colmena.url = "github:zhaofengli/colmena";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       # Ensure home-manager uses the same nixpkgs as your system for consistency.
@@ -25,7 +29,8 @@
     #colmena,
     nixos-hardware,
     home-manager,
-    arion
+    arion,
+    disko
   }@inputs:
     let
       # see https://github.com/NixOS/nixpkgs/issues/154163
@@ -36,7 +41,7 @@
         })
       ];
       specialArgs = {
-        inherit inputs nixos-hardware home-manager arion;
+        inherit inputs nixos-hardware home-manager arion disko;
       };
     in rec {
       nixosConfigurations = {
