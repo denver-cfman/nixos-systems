@@ -11,19 +11,16 @@
     ];
 
   boot.loader = {
-   systemd-boot = {
-    enable = true;
-    configurationLimit = 15;
-   };
-   efi.canTouchEfiVariables = true;
-    
-    #grub = {
-    #  enable = true;
-    #  device = "/dev/sda";
-    #  useOSProber = true;
-    #  efiSupport = true;
-    #  efiInstallAsRemovable = true;
-    #};
+    # Disable UEFI loaders
+    systemd-boot.enable = false;
+    efi.canTouchEfiVariables = false;
+  
+    # Enable Legacy GRUB
+    grub = {
+      enable = true;
+      device = "/dev/sda"; # The actual disk, NOT a partition
+      useOSProber = false; # Set to true only if dual booting
+    };
   };
 
   networking = {
