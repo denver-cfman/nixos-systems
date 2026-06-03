@@ -46,7 +46,6 @@
             ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
             "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
             ./hermes-test1/hermes-test1.nix
-            ./hermes-test1/disko.nix
           ];
         };
          pine64-plus = nixpkgs.lib.nixosSystem {
