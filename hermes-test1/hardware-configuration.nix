@@ -14,10 +14,20 @@
 
   boot.zfs.forceImportRoot = lib.mkDefault false; 
 
+  #fileSystems."/" =
+  #  { 
+  #    device = lib.mkDefault "/dev/disk/by-uuid/bcd35b4a-71f2-4610-91ea-eea524b016dd";
+  #    fsType = "ext4";
+  #  };
+
   fileSystems."/" =
-    { 
-      device = lib.mkDefault "/dev/disk/by-uuid/bcd35b4a-71f2-4610-91ea-eea524b016dd";
+    { device = "/dev/disk/by-label/nixos"; # Or UUID
       fsType = "ext4";
+    };
+  
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-label/ESP";
+      fsType = "vfat";
     };
 
   swapDevices = [ ];
