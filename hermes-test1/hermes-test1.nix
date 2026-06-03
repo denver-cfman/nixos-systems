@@ -10,8 +10,6 @@
       ./disco.nix
     ];
 
-  disko.devices.disk.main.device = "/dev/sda";
-
   boot.loader = {
     #systemd-boot = {
     #        enable = true;
