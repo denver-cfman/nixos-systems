@@ -19,6 +19,7 @@
     grub = {
       enable = true;
       device = "/dev/sda"; # The actual disk, NOT a partition
+      forceInstall = true;
       useOSProber = false; # Set to true only if dual booting
     };
   };
