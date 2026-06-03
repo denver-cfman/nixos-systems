@@ -1,1 +1,6 @@
 ### diskoScript
+{ config, pkgs, ... }:
+
+{
+
+}
