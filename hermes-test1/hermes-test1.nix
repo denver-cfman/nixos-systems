@@ -7,20 +7,19 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./disco.nix
+      ./uefi_disko.nix
     ];
 
   boot.loader = {
-    # Disable UEFI loaders
-    systemd-boot.enable = false;
-    efi.canTouchEfiVariables = false;
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
   
     # Enable Legacy GRUB
     grub = {
-      enable = true;
-      device = "/dev/sda"; # The actual disk, NOT a partition
-      forceInstall = true;
-      useOSProber = false; # Set to true only if dual booting
+      enable = false;
+      #device = "/dev/sda"; # The actual disk, NOT a partition
+      #forceInstall = true;
+      #useOSProber = false; # Set to true only if dual booting
     };
   };
 
