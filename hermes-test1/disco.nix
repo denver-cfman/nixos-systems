@@ -7,8 +7,8 @@
         content = {
           type = "gpt";
           partitions = {
-            mbr = {
-              size = "1M";
+            boot = {
+              size = "100M";
               type = "EF02";
             };
             root = {
