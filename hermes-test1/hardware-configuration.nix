@@ -20,10 +20,10 @@
   #    fsType = "ext4";
   #  };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/nixos"; # Or UUID
-      fsType = "ext4";
-    };
+  #fileSystems."/" =
+  #  { device = "/dev/disk/by-label/nixos"; # Or UUID
+  #    fsType = "ext4";
+  #  };
   
   #fileSystems."/boot" =
   ##  { device = "/dev/disk/by-label/ESP";
