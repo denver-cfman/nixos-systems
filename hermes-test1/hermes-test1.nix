@@ -87,8 +87,8 @@
     #};
 };
 
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
+  services.qemuGuest.enable = true;
+  systemd.services."serial-getty@ttyS0".enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
