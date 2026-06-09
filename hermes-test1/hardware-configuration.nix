@@ -20,11 +20,11 @@
   #    fsType = "ext4";
   #  };
 
-  fileSystems."/" = {
-    device = lib.mkForce "/dev/disk/by-label/nixos";
-    fsType = "ext4";
-    neededForBoot = true; 
-  };
+  #fileSystems."/" = {
+  #  device = lib.mkForce "/dev/disk/by-label/nixos";
+  #  fsType = "ext4";
+  #  neededForBoot = true; 
+  #};
   
   #fileSystems."/boot" =
   ##  { device = "/dev/disk/by-label/ESP";
