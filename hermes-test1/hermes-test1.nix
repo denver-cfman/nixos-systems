@@ -2,7 +2,7 @@
 
 {
 
-  isoImage.squashfsCompression = "zstd -Xcompression-level 1";
+  #isoImage.squashfsCompression = "zstd -Xcompression-level 1";
 
   imports =
     [
