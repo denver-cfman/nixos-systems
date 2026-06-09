@@ -10,7 +10,7 @@
       ./uefi_disko.nix
     ];
 
-  boot.kernelParams = [ "console=tty1" "console=ttyS0,115200n8" ];
+  boot.kernelParams = [ "console=tty1" ];
 
   boot.loader = {
     systemd-boot.enable = true;
