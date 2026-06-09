@@ -20,7 +20,7 @@ nix run github:nix-community/nixos-anywhere -- --flake 'github:denver-cfman/nixo
 ### remote update nix (nixos-rebuild) on cluster head
 #### nixos-rebuild
 ```
-sudo nixos-rebuild switch --impure --refresh --flake github:denver-cfman/nixos-systems?ref=tinker#hermes-test1
+sudo nixos-rebuild switch --impure --refresh --flake github:denver-cfman/nixos-systems?ref=tinker#hermes-test1 --no-write-lock-file
 ```
 #### deploy-rs
 ```
