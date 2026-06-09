@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, hermes-agent, lib, inputs, ... }:
 {
 
 }
