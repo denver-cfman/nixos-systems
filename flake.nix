@@ -9,6 +9,10 @@
     deploy-rs.url = "github:serokell/deploy-rs";
     #colmena.url = "github:zhaofengli/colmena";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       # Ensure home-manager uses the same nixpkgs as your system for consistency.
@@ -16,6 +20,7 @@
     };
     arion.url = "github:hercules-ci/arion";
     arion.inputs.nixpkgs.follows = "nixpkgs";
+    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
   outputs = {
@@ -25,7 +30,9 @@
     #colmena,
     nixos-hardware,
     home-manager,
-    arion
+    arion,
+    disko,
+    hermes-agent
   }@inputs:
     let
       # see https://github.com/NixOS/nixpkgs/issues/154163
@@ -36,10 +43,19 @@
         })
       ];
       specialArgs = {
-        inherit inputs nixos-hardware home-manager arion;
+        inherit inputs nixos-hardware home-manager arion disko hermes-agent;
       };
     in rec {
       nixosConfigurations = {
+         hermes-test1 = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
+            disko.nixosModules.disko
+            hermes-agent.nixosModules.default
+            ./hermes-test1/hermes-test1.nix
+          ];
+        };
          pine64-plus = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
