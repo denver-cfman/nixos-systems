@@ -8,7 +8,7 @@
     [
       ./hardware-configuration.nix
       ./uefi_disko.nix
-      #./hermes.nix
+      ./hermes.nix
     ];
 
   boot.kernelParams = [
