@@ -31,7 +31,10 @@
   #    fsType = "vfat";
   #  };
 
-  swapDevices = [ ];
+  swapDevices = [ {
+    device = "/var/lib/swapfile";
+    size = 4096; # 4GB of swap space
+  } ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
