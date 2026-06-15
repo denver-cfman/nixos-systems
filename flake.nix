@@ -13,6 +13,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       # Ensure home-manager uses the same nixpkgs as your system for consistency.
@@ -32,6 +36,7 @@
     home-manager,
     arion,
     disko,
+    sops-nix,
     hermes-agent
   }@inputs:
     let
@@ -52,6 +57,7 @@
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
             disko.nixosModules.disko
+            sops-nix.nixosModules.sops
             hermes-agent.nixosModules.default
             ./hermes-test1/hermes-test1.nix
           ];
