@@ -26,11 +26,6 @@
   sdImage = {
     compressImage = true;
     imageName = lib.mkForce "pine64-plus.img";
-    populateRootCommands = ''
-    mkdir -p ./files/boot
-    ${config.boot.loader.generic-extlinux-compatible.populateCmd} -c ${config.system.build.toplevel} -d ./files/boot
-    '';
-    populateFirmwareCommands = "";
   };
 
   hardware.enableRedistributableFirmware = lib.mkForce true;
