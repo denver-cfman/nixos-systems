@@ -27,6 +27,8 @@
     };
   };
 
+  hardware.enableRedistributableFirmware = lib.mkForce true;
+
   boot = {
     zfs.forceImportRoot = lib.mkForce false;
     kernelParams = [
@@ -37,8 +39,8 @@
     ];
 
     loader = {
-      grub.enable = false;
-      generic-extlinux-compatible.enable = true;
+      grub.enable = lib.mkDefault false;
+      generic-extlinux-compatible.enable = lib.mkDefault true;
       timeout = 2;
     };
     swraid.enable = lib.mkForce false;
