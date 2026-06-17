@@ -15,12 +15,12 @@
 
   image = {
     #compressImage = true;
-    fileName = "pine64-plus.img";
+    fileName = lib.mkForce "pine64-plus.img";
   };
 
   sdImage = {
     compressImage = true;
-    imageName = "pine64-plus.img";
+    imageName = lib.mkForce "pine64-plus.img";
     extraFirmwareConfig = {
       start_x = 0;
       #gpu_mem = 16;
