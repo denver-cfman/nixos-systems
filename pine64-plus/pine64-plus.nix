@@ -15,7 +15,7 @@
 
   image = {
     #compressImage = true;
-    fileName = lib.mkForce "pine64-plus.img";
+    #fileName = lib.mkForce "pine64-plus.img";
   };
 
   nixpkgs.hostPlatform.system = "aarch64-linux";
@@ -25,7 +25,7 @@
 
   sdImage = {
     compressImage = true;
-    #imageName = lib.mkForce "pine64-plus.img";
+    imageName = lib.mkForce "pine64-plus.img";
     populateRootCommands = ''
     mkdir -p ./files/boot
     ${config.boot.loader.generic-extlinux-compatible.populateCmd} -c ${config.system.build.toplevel} -d ./files/boot
