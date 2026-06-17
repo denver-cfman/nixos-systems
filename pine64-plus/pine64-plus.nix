@@ -14,7 +14,7 @@
     ];
 
   image = {
-    compressImage = true;
+    #compressImage = true;
     fileName = "pine64-plus.img";
   };
 
