@@ -155,7 +155,11 @@
    };
   };
 
-  #disabledModules = [ "services/x11/desktop-managers/none.nix" ];
+   disabledModules = [
+    "profiles/installation-device.nix"
+    "installer/sd-card/sd-image-aarch64.nix"
+    "installer/sd-card/sd-image-aarch64-installer.nix"
+   ];
 
   nix.gc = {
     automatic = true;
