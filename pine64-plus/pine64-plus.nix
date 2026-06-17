@@ -98,7 +98,7 @@
     wheelNeedsPassword = false;
   };
 
-  services.getty.autologinUser = "giezac";
+  services.getty.autologinUser = lib.mkForce "giezac";
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
