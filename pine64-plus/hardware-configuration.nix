@@ -22,7 +22,7 @@
 
   networking.useDHCP = lib.mkDefault true;
  
-  nixpkgs.hostPlatform.system = lib.mkDefault "aarch64-linux";
-  nixpkgs.buildPlatform.system = lib.mkDefault "x86_64-linux";
+  nixpkgs.hostPlatform.system = "aarch64-linux";
+  nixpkgs.buildPlatform.system = "x86_64-linux";
 
 }
