@@ -21,6 +21,8 @@
   nixpkgs.hostPlatform.system = "aarch64-linux";
   nixpkgs.buildPlatform.system = "x86_64-linux";
 
+  nix.settings.trusted-users = ["@wheel"];
+
   sdImage = {
     compressImage = true;
     #imageName = lib.mkForce "pine64-plus.img";
