@@ -10,7 +10,7 @@
       ./containers.nix
       ./hardware-configuration.nix
       #./nfs-mounts.nix
-      ./sd-image.nix
+      #./sd-image.nix
     ];
 
   image = {
