@@ -13,7 +13,7 @@
   nix.settings.trusted-users = ["@wheel"];
 
   sdImage = {
-    compressImage = false;
+    #compressImage = false;
     imageName = "pine64-plus.img";
 
     extraFirmwareConfig = {
