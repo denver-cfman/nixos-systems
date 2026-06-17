@@ -19,8 +19,7 @@ sudo nixos-rebuild switch --impure --refresh --flake github:denver-cfman/nixos-s
 ```
 #### Build sd-image (for flashing on [Pine64+](https://discourse.nixos.org/t/pine64-device-images/15699))
 ```
-sudo nix build --impure --refresh --rebuild --no-update-lock-file -L -v github:denver-cfman/nixos-systems?ref=pine64#nixosConfigurations.pine64-plus.config.system.
-build.sdImage
+sudo nix build --impure --refresh --rebuild --no-update-lock-file -L -v github:denver-cfman/nixos-systems?ref=pine64#nixosConfigurations.pine64-plus.config.system.build.sdImage
 ```
 
 #### nix-tree view
