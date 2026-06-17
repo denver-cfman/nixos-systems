@@ -18,6 +18,9 @@
     fileName = lib.mkForce "pine64-plus.img";
   };
 
+  nixpkgs.hostPlatform.system = "aarch64-linux";
+  nixpkgs.buildPlatform.system = "x86_64-linux";
+
   sdImage = {
     compressImage = true;
     #imageName = lib.mkForce "pine64-plus.img";
