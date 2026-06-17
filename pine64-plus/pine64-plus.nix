@@ -10,19 +10,21 @@
       ./sd-image.nix
     ];
 
-  image = {
-    #compressImage = true;
-    #fileName = lib.mkForce "pine64-plus.img";
-  };
-
   nixpkgs.hostPlatform.system = "aarch64-linux";
   nixpkgs.buildPlatform.system = "x86_64-linux";
 
   nix.settings.trusted-users = ["@wheel"];
 
   sdImage = {
-    compressImage = true;
-    imageName = lib.mkForce "pine64-plus.img";
+    compressImage = false;
+    imageName = "9a7e6755.img";
+
+    extraFirmwareConfig = {
+      start_x = 0;
+      gpu_mem = 16;
+      hdmi_group = 2;
+      hdmi_mode = 8;
+    };
   };
 
   hardware.enableRedistributableFirmware = lib.mkForce true;
