@@ -64,7 +64,7 @@
         };
          pine64-plus = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          system = "aarch64-linux";
+          #system = "aarch64-linux";
           #system = "x86_64-linux";
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
