@@ -14,7 +14,7 @@
 
   sdImage = {
     #compressImage = false;
-    imageName = "pine64-plus.img";
+    #imageName = "pine64-plus.img";
 
     extraFirmwareConfig = {
       start_x = 0;
