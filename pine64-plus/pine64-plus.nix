@@ -10,14 +10,11 @@
       ./sd-image.nix
     ];
 
-  nixpkgs.hostPlatform.system = "aarch64-linux";
-  nixpkgs.buildPlatform.system = "x86_64-linux";
-
   nix.settings.trusted-users = ["@wheel"];
 
   sdImage = {
     compressImage = false;
-    imageName = "9a7e6755.img";
+    imageName = "pine64-plus.img";
 
     extraFirmwareConfig = {
       start_x = 0;
