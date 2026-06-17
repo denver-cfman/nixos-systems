@@ -20,7 +20,7 @@
 
   sdImage = {
     compressImage = true;
-    imageName = lib.mkForce "pine64-plus.img";
+    #imageName = lib.mkForce "pine64-plus.img";
     populateRootCommands = ''
     mkdir -p ./files/boot
     ${config.boot.loader.generic-extlinux-compatible.populateCmd} -c ${config.system.build.toplevel} -d ./files/boot
