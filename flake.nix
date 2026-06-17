@@ -66,7 +66,8 @@
           inherit specialArgs;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
-            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+            #"${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64-installer.nix"
             sops-nix.nixosModules.sops
             arion.nixosModules.arion
             ./pine64-plus/pine64-plus.nix
