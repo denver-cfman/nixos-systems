@@ -127,8 +127,6 @@
 
   documentation.enable = false;
   documentation.nixos.enable = false;
-  
-  hardware.enableRedistributableFirmware = lib.mkForce false;
 
   virtualisation = {
     docker = {
