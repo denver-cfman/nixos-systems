@@ -1,31 +1,30 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, lib, inputs, modulesPath, pkgs, ... }:
 
 {
   imports =
     [
-      ./containers.nix
+      #./containers.nix
       ./hardware-configuration.nix
       #./nfs-mounts.nix
       ./sd-image.nix
     ];
 
-  image = {
-    #compressImage = false;
-    fileName = "pine64-plus.img";
-  };
+  nix.settings.trusted-users = ["@wheel"];
 
   sdImage = {
+    #compressImage = false;
+    #imageName = "pine64-plus.img";
+
     extraFirmwareConfig = {
       start_x = 0;
-      #gpu_mem = 16;
-      #hdmi_group = 2;
-      #hdmi_mode = 8;
+      gpu_mem = 16;
+      hdmi_group = 2;
+      hdmi_mode = 8;
     };
   };
+
+  hardware.enableRedistributableFirmware = lib.mkForce true;
 
   boot = {
     zfs.forceImportRoot = lib.mkForce false;
@@ -37,8 +36,8 @@
     ];
 
     loader = {
-      grub.enable = false;
-      generic-extlinux-compatible.enable = true;
+      grub.enable = lib.mkDefault false;
+      generic-extlinux-compatible.enable = lib.mkDefault true;
       timeout = 2;
     };
     swraid.enable = lib.mkForce false;
@@ -98,7 +97,7 @@
     wheelNeedsPassword = false;
   };
 
-  services.getty.autologinUser = "giezac";
+  services.getty.autologinUser = lib.mkForce "giezac";
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -125,8 +124,6 @@
 
   documentation.enable = false;
   documentation.nixos.enable = false;
-  
-  hardware.enableRedistributableFirmware = lib.mkForce false;
 
   virtualisation = {
     docker = {
@@ -154,7 +151,11 @@
    };
   };
 
-  #disabledModules = [ "services/x11/desktop-managers/none.nix" ];
+   disabledModules = [
+    "profiles/installation-device.nix"
+    "installer/sd-card/sd-image-aarch64.nix"
+    "installer/sd-card/sd-image-aarch64-installer.nix"
+   ];
 
   nix.gc = {
     automatic = true;
