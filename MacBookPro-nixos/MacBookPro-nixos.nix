@@ -191,7 +191,8 @@ services.pipewire = {
     hplipWithPlugin
     imagemagick
     xrdp
-    realvnc-vnc-viewer
+    #realvnc-vnc-viewer
+    multivnc
     devenv
     vim
     wget
