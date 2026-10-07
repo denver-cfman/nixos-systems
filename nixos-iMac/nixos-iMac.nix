@@ -165,6 +165,7 @@
     podman-compose
     python315
     screen
+    localsend
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
