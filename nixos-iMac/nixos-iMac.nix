@@ -183,8 +183,6 @@
     "i486-linux"
     "i586-linux"
     "i686-linux"
-    "wasm32-wasi"
-    "wasm64-wasi"
   ];
 
   system.autoUpgrade = {
