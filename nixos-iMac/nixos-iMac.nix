@@ -101,7 +101,6 @@
     packages = with pkgs; [
       fastfetch 
       f3
-      woeusb-ng
       ntfs3g
       oh-my-zsh
       chromium
@@ -109,8 +108,6 @@
       wireshark
       meld
       gparted
-      obs-studio
-     termius
     ];
     password = "changeme";
     openssh.authorizedKeys.keys = [
@@ -163,7 +160,6 @@
     oh-my-zsh
     jq
     vlc
-    openshot-qt
     podman
     podman-desktop
     podman-compose
