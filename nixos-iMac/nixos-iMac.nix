@@ -101,7 +101,6 @@
     packages = with pkgs; [
       fastfetch 
       f3
-      woeusb-ng
       ntfs3g
       oh-my-zsh
       chromium
@@ -109,8 +108,6 @@
       wireshark
       meld
       gparted
-      obs-studio
-     termius
     ];
     password = "changeme";
     openssh.authorizedKeys.keys = [
@@ -163,12 +160,12 @@
     oh-my-zsh
     jq
     vlc
-    openshot-qt
     podman
     podman-desktop
     podman-compose
     python315
     screen
+    localsend
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -183,8 +180,6 @@
     "i486-linux"
     "i586-linux"
     "i686-linux"
-    "wasm32-wasi"
-    "wasm64-wasi"
   ];
 
   system.autoUpgrade = {
