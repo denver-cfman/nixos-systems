@@ -14,7 +14,7 @@ nix flake show --all-systems --json github:denver-cfman/nixos-systems?ref=main |
 
 ### remote install via nixos-anywhere
 ```bash
-nix run github:nix-community/nixos-anywhere --extra-experimental-features "flakes nix-command" -- --flake 'github:denver-cfman/nixos-systems?ref=tinker#hermes-test1' --target-host nixos@10.0.85.186
+nix run github:nix-community/nixos-anywhere --extra-experimental-features "flakes nix-command" -- --flake 'github:denver-cfman/nixos-systems?ref=main#hermes-test1' --target-host nixos@10.0.85.186
 ```
 
 ### remote update nix (nixos-rebuild) on cluster head
