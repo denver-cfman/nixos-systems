@@ -17,7 +17,7 @@ nix flake show --all-systems --json github:denver-cfman/nixos-systems?ref=main |
 ```bash
 passwd
 ```
-Then ssh into booted host via non-nix system
+Then from any system with nix already installed
 ```bash
 nix run github:nix-community/nixos-anywhere --extra-experimental-features "flakes nix-command" -- --flake 'github:denver-cfman/nixos-systems?ref=main#hermes-test1' --target-host nixos@10.0.85.186
 ```
