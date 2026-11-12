@@ -99,6 +99,7 @@
     python313
     uv
     lsof
+    net-tools
     vim
     wget
     htop
