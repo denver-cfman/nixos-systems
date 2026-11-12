@@ -113,6 +113,13 @@
     screen
   ];
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc.lib
+    zlib
+    glibc
+  ];
+
   nixpkgs.config.permittedInsecurePackages = [
       "qtwebengine-5.15.19"
   ];
