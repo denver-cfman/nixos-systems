@@ -62,6 +62,16 @@
             ./hermes-test1/hermes-test1.nix
           ];
         };
+         hermes-test2 = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
+            disko.nixosModules.disko
+            sops-nix.nixosModules.sops
+            hermes-agent.nixosModules.default
+            ./hermes-test2/hermes-test2.nix
+          ];
+        };
          pine64-plus = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = "aarch64-linux";
