@@ -33,17 +33,23 @@
 
   networking = {
     hostName = "hermes-test1";
+    nftables.enable = true;
     networkmanager = {
       enable = true;
     };
 
     firewall = {
      enable = false;
+     trustedInterfaces = [ config.services.tailscale.interfaceName ];
      allowedTCPPorts = [ 22 9119 8787 ];
-     allowedUDPPortRanges = [ ];
+     allowedUDPPortRanges = [ config.services.tailscale.port ];
    };
   };
-  
+
+  services.tailscale = {
+    enable = true;
+  };
+
   time.timeZone = "America/Denver";
 
   i18n.defaultLocale = "en_US.UTF-8";
