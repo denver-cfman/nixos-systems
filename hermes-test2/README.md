@@ -1,4 +1,4 @@
-# hermes-test1
+# hermes-test2
 ---
 
 ---
@@ -19,21 +19,21 @@ passwd
 ```
 Then from any system with nix already installed
 ```bash
-nix run github:nix-community/nixos-anywhere --extra-experimental-features "flakes nix-command" -- --flake 'github:denver-cfman/nixos-systems?ref=main#hermes-test1' --target-host nixos@10.0.85.186
+nix run github:nix-community/nixos-anywhere --extra-experimental-features "flakes nix-command" -- --flake 'github:denver-cfman/nixos-systems?ref=main#hermes-test2' --target-host nixos@10.0.85.186
 ```
 
 ### remote update nix (nixos-rebuild) on cluster head
 #### nixos-rebuild
 ```
-sudo nixos-rebuild dry-activate --impure --refresh --flake github:denver-cfman/nixos-systems?ref=tinker#hermes-test1 --no-write-lock-file
+sudo nixos-rebuild dry-activate --impure --refresh --flake github:denver-cfman/nixos-systems?ref=tinker#hermes-test2 --no-write-lock-file
 ```
 #### deploy-rs
 ```
-K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/nixos-systems?ref=main#hermes-test1 -- -s -d --ssh-user giezac --hostname 10.0.81.99
+K3S_TOKEN=thisisjustatest nix run github:serokell/deploy-rs github:denver-cfman/nixos-systems?ref=main#hermes-test2 -- -s -d --ssh-user giezac --hostname 10.0.81.99
 ```
 #### build iso image for install
 ```
-sudo nix build --impure --refresh --rebuild --no-update-lock-file -L -v github:denver-cfman/nixos-systems?ref=tinker#nixosConfigurations.hermes-test1.config.system.build.isoImage --extra-experimental-features "flakes nix-command"
+sudo nix build --impure --refresh --rebuild --no-update-lock-file -L -v github:denver-cfman/nixos-systems?ref=tinker#nixosConfigurations.hermes-test2.config.system.build.isoImage --extra-experimental-features "flakes nix-command"
 ```
 
 #### Test Compile of a single package
