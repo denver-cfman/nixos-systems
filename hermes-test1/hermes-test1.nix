@@ -98,6 +98,7 @@
   environment.systemPackages = with pkgs; [
     python313
     uv
+    lsof
     vim
     wget
     htop
