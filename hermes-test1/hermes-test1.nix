@@ -36,6 +36,12 @@
     networkmanager = {
       enable = true;
     };
+
+    firewall = {
+     enable = false;
+     allowedTCPPorts = [ 22 9119 8787 ];
+     allowedUDPPortRanges = [ ];
+   };
   };
   
   time.timeZone = "America/Denver";
