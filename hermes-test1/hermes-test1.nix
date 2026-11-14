@@ -119,6 +119,7 @@
     uv
     lsof
     net-tools
+    playwright
     vim
     wget
     htop
