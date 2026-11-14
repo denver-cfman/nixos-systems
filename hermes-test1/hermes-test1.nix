@@ -120,6 +120,7 @@
     lsof
     net-tools
     playwright
+    chromium
     vim
     wget
     htop
